@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "category": "Food & Dining",
+    "discount": "15% OFF",
+    "description": "Get 15% off at all participating restaurants",
+    "code": "GRATE15"
+  },
+  {
+    "id": 2,
+    "category": "Clothing & Fashion",
+    "discount": "20% OFF",
+    "description": "Save 20% on your first clothing purchase",
+    "code": "STYLE20"
+  },
+  {
+    "id": 3,
+    "category": "Entertainment",
+    "discount": "10% OFF",
+    "description": "10% off arcade games and movie tickets",
+    "code": "FUN10"
+  },
+  {
+    "id": 4,
+    "category": "Health & Wellness",
+    "discount": "25% OFF",
+    "description": "First-time customers save 25%",
+    "code": "HEALTH25"
+  },
+  {
+    "id": 5,
+    "category": "Beauty & Spa",
+    "discount": "30% OFF",
+    "description": "New clients get 30% off first spa treatment",
+    "code": "SPA30"
+  },
+  {
+    "id": 6,
+    "category": "Coffee & Cafes",
+    "discount": "Buy 1 Get 1",
+    "description": "Buy one coffee, get one free at select locations",
+    "code": "BOGO"
+  },
+  {
+    "id": 7,
+    "category": "Fitness & Gym",
+    "discount": "50% OFF",
+    "description": "First month membership half off",
+    "code": "FIT50"
+  },
+  {
+    "id": 8,
+    "category": "Auto Services",
+    "discount": "$20 OFF",
+    "description": "$20 off oil change and tire rotation",
+    "code": "AUTO20"
+  }
+]
