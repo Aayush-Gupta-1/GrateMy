@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - Grate My Service</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+<header class="top-nav">
+  <div class="nav-left">
+    <span class="nav-logo">🧀</span>
+    <span class="nav-title">Grate My Service</span>
+  </div>
+
+  <div class="nav-right">
+    <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+    <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+
+    {% if current_user %}
+      <a href="{{ url_for('profile') }}" class="nav-link active">Hi, {{ current_user }}</a>
+      <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+      <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a>
+    {% endif %}
+  </div>
+</header>
+
+<main class="page-container">
+
+  <!-- Profile Header Card -->
+  <section class="detail-card" style="margin-top: 28px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap: 18px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap: 14px;">
+        <!-- Avatar circle -->
+        <div style="
+          width:64px; height:64px; border-radius:50%;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.10);
+          display:flex; align-items:center; justify-content:center;
+          font-size: 28px;">
+          🐭
+        </div>
+
+        <div>
+          <h1 style="margin:0;">{{ current_user }}</h1>
+          <p class="biz-description" style="margin:6px 0 0;">
+            Certified cheese critic. Local deal hunter. Professional grater.
+          </p>
+        </div>
+      </div>
+
+      <a class="secondary-button" href="{{ url_for('discover') }}">Explore Services</a>
+    </div>
+
+    <!-- Stats row -->
+    <div style="
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+      gap: 14px;">
+      
+      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+        <div style="opacity:0.75; font-size: 13px;">Total Reviews</div>
+        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;">
+          {{ total_reviews }}
+        </div>
+      </div>
+
+      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+        <div style="opacity:0.75; font-size: 13px;">Average Cheese</div>
+        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;">
+          {% if avg_cheese %}
+            {{ avg_cheese }} / 5 🧀
+          {% else %}
+            — 🧀
+          {% endif %}
+        </div>
+      </div>
+
+      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+        <div style="opacity:0.75; font-size: 13px;">Top Category</div>
+        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;">
+          {{ top_category if top_category else "—" }}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="detail-card" style="margin-top: 18px;">
+    <h2 style="margin-top:0;">Your Reviews</h2>
+
+    {% if user_reviews %}
+      <ul class="reviews-list">
+        {% for r in user_reviews %}
+          <li class="review-item">
+            <div class="review-header" style="display:flex; align-items:center; justify-content:space-between; gap: 10px;">
+              <div>
+                <strong>{{ r.business_name }}</strong>
+                <div style="opacity:0.7; font-size: 13px; margin-top: 2px;">
+                  {{ r.category if r.category else "Service" }}
+                  {% if r.created_at %} • {{ r.created_at }}{% endif %}
+                </div>
+              </div>
+              <span style="font-weight: 700;">{{ r.rating }} 🧀</span>
+            </div>
+
+            {% if r.comment %}
+              <p style="margin-top: 10px;">{{ r.comment }}</p>
+            {% else %}
+              <p style="margin-top: 10px; opacity:0.7;">No comment left.</p>
+            {% endif %}
+
+            <!-- Optional quick action -->
+            <div style="margin-top: 10px;">
+              <a class="secondary-button" href="{{ url_for('business_detail', business_id=r.business_id) }}">
+                View Business →
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p style="opacity:0.8;">No reviews yet. Go grate something. 🧀</p>
+      <a class="primary-button" href="{{ url_for('discover') }}">Find a service to review</a>
+    {% endif %}
+  </section>
+
+</main>
+
+</body>
+</html>

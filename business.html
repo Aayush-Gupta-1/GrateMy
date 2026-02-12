@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ business.name }} - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+    <div class="nav-right">
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+    </div>
+</header>
+
+<main class="page-container">
+    <article class="detail-card">
+        <!-- Business image in corner -->
+        <div class="detail-business-image" style="background-image: url('{{ url_for('static', filename='images/businesses/' + business.image) }}');"></div>
+
+
+        <h1>{{ business.name }}</h1>
+        <p class="biz-category">{{ business.category }}</p>
+        <p class="biz-description">{{ business.description }}</p>
+
+        <h2>Cheese Score</h2>
+        <p class="biz-rating">
+            {% if ratings_count %}
+                {{ avg_rating }} / 5 🧀 ({{ ratings_count }} ratings)
+            {% else %}
+                No cheese grated yet. Be the first!
+            {% endif %}
+        </p>
+
+        <section class="rating-section">
+            <h3>Grate this service</h3>
+            <form method="post" class="rating-form">
+                <label>
+                    Your name:
+                    <input type="text" name="user" placeholder="Optional">
+                </label>
+
+                <label>
+                    Cheese rating:
+                    <select name="rating" required>
+                        <option value="">Select...</option>
+                        <option value="1">1 🧀 – Not grate</option>
+                        <option value="2">2 🧀🧀 - Okay</option>
+                        <option value="3">3 🧀🧀🧀 – Mid Grate</option>
+                        <option value="4">4 🧀🧀🧀🧀 – Grate</option>
+                        <option value="5">5 🧀🧀🧀🧀🧀 – Truly grate</option>
+                    </select>
+                </label>
+
+                <label>
+                    Why did you give this amount of cheese?
+                    <textarea name="comment" rows="4"
+                              placeholder="Describe the service experience..."></textarea>
+                </label>
+
+                <button class="primary-button" type="submit">Submit Grating</button>
+            </form>
+        </section>
+
+        <section class="reviews-section">
+            <h3>Reviews</h3>
+            {% if reviews %}
+                <ul class="reviews-list">
+                    {% for r in reviews %}
+                        <li class="review-item">
+                            <div class="review-header">
+                                <strong>{{ r.user }}</strong>
+                                <span>{{ r.rating }} 🧀</span>
+                            </div>
+                            <p>{{ r.comment }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No reviews yet.</p>
+            {% endif %}
+        </section>
+
+        <a class="secondary-button" href="{{ url_for('discover') }}">
+            ← Back to Discover
+        </a>
+    </article>
+</main>
+</body>
+</html>

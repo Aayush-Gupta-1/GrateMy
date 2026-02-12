@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grate My Service - Best Deals & Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+    <div class="nav-right">
+        <a href="{{ url_for('home') }}" class="nav-link active">Home</a>
+        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+
+        {% if current_user %}
+            <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a>
+            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a>
+        {% endif %}
+    </div>
+</header>
+
+<!-- Hero Banner -->
+<section class="hero-banner">
+    <div class="hero-content">
+        <h1>🐭 Welcome to Grate My Service</h1>
+        <p class="hero-subtitle">Discover the best local services with exclusive deals and honest reviews</p>
+        <a href="{{ url_for('discover') }}" class="primary-button hero-button">
+            Explore Services →
+        </a>
+    </div>
+</section>
+
+<!-- Deals & Coupons Section -->
+<section class="deals-section">
+    <div class="page-container">
+        <h2 class="section-title"> Exclusive Deals & Coupons</h2>
+
+        <div class="coupons-grid">
+            {% for coupon in coupons %}
+                <div class="coupon-card">
+                    <div class="coupon-badge">{{ coupon.discount }}</div>
+                    <img src="{{ url_for('static', filename='images/coupon.png') }}" alt="Coupon" class="coupon-icon">
+                    <h3>{{ coupon.category }}</h3>
+                    <p>{{ coupon.description }}</p>
+                    <span class="coupon-code">Code: {{ coupon.code }}</span>
+                </div>
+            {% else %}
+                <p>No deals available at the moment. Check back soon!</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Contact/Footer Section -->
+<footer class="contact-footer">
+    <div class="page-container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>🧀 Grate My Service</h3>
+                <p>Your trusted source for service reviews and exclusive deals</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('discover') }}">Discover Services</a></li>
+                    <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📧 hello@gratemyservice.com</p>
+                <p>📞 (555) 123-4567</p>
+                <p>📍 123 Cheese Lane, Dairy City</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Grate My Service. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

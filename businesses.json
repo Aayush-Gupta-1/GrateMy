@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "Cheddar Corner Cafe",
+    "category": "Food",
+    "description": "Cozy cafe serving grilled cheese, tomato soup, and late-night study snacks.",
+    "image": "cheddar-corner-cafe.png",
+    "avg_rating": 4.6,
+    "ratings_count": 12,
+    "favorite": false
+  },
+  {
+    "id": 2,
+    "name": "Midnight Slice Pizza",
+    "category": "Food",
+    "description": "Local pizza spot famous for giant slices and student discounts after 8 PM.",
+    "image": "midnight-slice-pizza.png",
+    "avg_rating": 4.3,
+    "ratings_count": 9,
+    "favorite": false
+  },
+  {
+    "id": 3,
+    "name": "Bao & Brew",
+    "category": "Food",
+    "description": "Asian fusion shop with steamed buns, boba, and chill lo-fi playlists.",
+    "image": "bao-and-brew.png",
+    "avg_rating": 3.0,
+    "ratings_count": 1,
+    "favorite": false
+  },
+  {
+    "id": 4,
+    "name": "Green Fork Salad Bar",
+    "category": "Food",
+    "description": "Build-your-own salads, wraps, and smoothies for a slightly less chaotic diet.",
+    "image": "green-fork-salad-bar.png",
+    "avg_rating": 4.1,
+    "ratings_count": 5,
+    "favorite": false
+  },
+  {
+    "id": 5,
+    "name": "Thread Theory",
+    "category": "Clothing",
+    "description": "Minimal streetwear, graphic tees, and hoodies designed by local artists.",
+    "image": "thread-theory.png",
+    "avg_rating": 4.7,
+    "ratings_count": 10,
+    "favorite": false
+  },
+  {
+    "id": 6,
+    "name": "Locker Room Thrift",
+    "category": "Clothing",
+    "description": "Thrift store with vintage jerseys, jackets, and accidentally fire outfits.",
+    "image": "locker-room-thrift.png",
+    "avg_rating": 4.5,
+    "ratings_count": 6,
+    "favorite": false
+  },
+  {
+    "id": 7,
+    "name": "Campus Kicks",
+    "category": "Clothing",
+    "description": "Sneaker boutique for limited drops, custom laces, and shoe cleaning.",
+    "image": "campus-kicks.png",
+    "avg_rating": 4.75,
+    "ratings_count": 4,
+    "favorite": true
+  },
+  {
+    "id": 8,
+    "name": "Study Sweat Co.",
+    "category": "Clothing",
+    "description": "Comfy sweats, socks, and beanies built for all-nighters and exam season.",
+    "image": "study-sweat-co.png",
+    "avg_rating": 4.9,
+    "ratings_count": 4,
+    "favorite": false
+  },
+  {
+    "id": 9,
+    "name": "Tech Rescue Repair",
+    "category": "Services",
+    "description": "Phone and laptop repair that saves you when your screen cracks before finals.",
+    "image": "tech-rescue-repair.png",
+    "avg_rating": 4.4,
+    "ratings_count": 11,
+    "favorite": false
+  },
+  {
+    "id": 10,
+    "name": "Sparkle & Spin Laundry",
+    "category": "Services",
+    "description": "Drop-off laundry and dry cleaning so you don't have to fight the dorm washers.",
+    "image": "sparkle-and-spin-laundry.png",
+    "avg_rating": 4.0,
+    "ratings_count": 5,
+    "favorite": false
+  },
+  {
+    "id": 11,
+    "name": "FocusRide Tutors",
+    "category": "Services",
+    "description": "Peer tutoring for math, science, and SAT prep with flexible late-evening slots.",
+    "image": "focusride-tutors.png",
+    "avg_rating": 4.0,
+    "ratings_count": 1,
+    "favorite": true
+  },
+  {
+    "id": 12,
+    "name": "SnapShot Studio",
+    "category": "Services",
+    "description": "Quick headshots, club photos, and content shoots for small businesses.",
+    "image": "snapshot-studio.png",
+    "avg_rating": 4.3,
+    "ratings_count": 3,
+    "favorite": false
+  },
+  {
+    "id": 13,
+    "name": "Level Up Arcade Lounge",
+    "category": "Entertainment",
+    "description": "Retro arcade, rhythm games, and comfy couches for group hangouts.",
+    "image": "level-up-arcade-lounge.png",
+    "avg_rating": 4.6,
+    "ratings_count": 7,
+    "favorite": false
+  },
+  {
+    "id": 14,
+    "name": "Starlight Mini Golf",
+    "category": "Entertainment",
+    "description": "Glow-in-the-dark mini golf with ridiculous obstacles and photo spots.",
+    "image": "starlight-mini-golf.png",
+    "avg_rating": 5.0,
+    "ratings_count": 1,
+    "favorite": false
+  },
+  {
+    "id": 15,
+    "name": "Reel Night Cinema",
+    "category": "Entertainment",
+    "description": "Small indie theater showing throwback movies, anime nights, and premieres.",
+    "image": "reel-night-cinema.png",
+    "avg_rating": 4.5,
+    "ratings_count": 6,
+    "favorite": false
+  },
+  {
+    "id": 16,
+    "name": "Open Mic Hub",
+    "category": "Entertainment",
+    "description": "Coffee-shop stage for stand-up, poetry, and music from local performers.",
+    "image": "open-mic-hub.png",
+    "avg_rating": 4.1,
+    "ratings_count": 5,
+    "favorite": false
+  }
+]

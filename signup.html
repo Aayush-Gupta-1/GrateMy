@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sign up - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<img src="{{ url_for('static', filename='images/grate.png') }}"
+     alt=""
+     class="grater-decoration">
+
+<img src="{{ url_for('static', filename='images/left.png') }}"
+     alt=""
+     class="left-decoration">
+
+
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+</header>
+
+<main class="page-container auth-layout">
+    <section class="auth-card">
+
+        <!-- tabs: signup is active now -->
+        <div class="auth-tabs">
+            <a href="{{ url_for('login') }}" class="auth-tab">Log in</a>
+            <a href="{{ url_for('signup') }}" class="auth-tab auth-tab--active">Sign up</a>
+        </div>
+
+        <div class="auth-header">
+            <h1>Create your account</h1>
+        </div>
+
+        {% if error %}
+            <p class="auth-error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" class="auth-form">
+            <label class="auth-label">
+                Username
+                <input
+                    type="text"
+                    name="username"
+                    required
+                    autocomplete="username"
+                    class="auth-input"
+                >
+            </label>
+
+            <label class="auth-label">
+                Password
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    autocomplete="new-password"
+                    class="auth-input"
+                >
+            </label>
+
+            <label class="auth-label">
+                Confirm password
+                <input
+                    type="password"
+                    name="confirm"
+                    required
+                    autocomplete="new-password"
+                    class="auth-input"
+                >
+            </label>
+
+            <div class="auth-actions">
+                <button type="submit" class="primary-button auth-button">
+                    Continue →
+                </button>
+            </div>
+
+        </form>
+    </section>
+</main>
+
+</body>
+</html>
