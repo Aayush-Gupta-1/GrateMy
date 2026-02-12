@@ -1,0 +1,1465 @@
+/* Global */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #020617; /* dark navy */
+    color: #f9fafb;      /* near white */
+}
+
+/* Splash */
+
+.splash-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #facc15 0, #0f172a 55%);
+}
+
+.splash-container {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    border-radius: 999px;
+    background: #facc15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.app-title {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 0.1em;
+}
+
+.app-tagline {
+    margin-top: 0.5rem;
+    color: #e5e7eb;
+}
+
+.primary-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    border: none;
+    background: #facc15;
+    color: #111827;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    filter: brightness(1.1);
+}
+
+.small-note {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #9ca3af;
+}
+
+/* Navigation */
+
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid #1f2937;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+}
+
+.nav-title {
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    color: #facc15;
+}
+
+.nav-link.active {
+    color: #facc15;
+}
+
+/* Layout */
+
+.page-container {
+    max-width: 1100px;
+    margin: 1.5rem auto 2rem;
+    padding: 0 1rem;
+}
+
+/* Controls bar */
+
+
+
+.controls-form label {
+    font-size: 0.85rem;
+    color: #e5e7eb;
+}
+
+.controls-form select,
+.controls-form input[type="checkbox"] {
+    margin-left: 0.25rem;
+}
+
+.favorites-toggle {
+    margin-left: auto;
+}
+
+/* Cards */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+
+
+
+
+.biz-category {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #9ca3af;
+    letter-spacing: 0.08em;
+}
+
+.biz-description {
+    font-size: 0.9rem;
+    color: #e5e7eb;
+}
+
+.biz-rating {
+    font-size: 0.85rem;
+    color: #facc15;
+}
+
+
+.secondary-button {
+    margin-top: 0.4rem;
+    align-self: flex-start;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid #4b5563;
+    background: transparent;
+    color: #e5e7eb;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.secondary-button:hover {
+    border-color: #facc15;
+    color: #facc15;
+}
+
+/* Detail page */
+
+.detail-card {
+    background: #020617;
+    border-radius: 1.2rem;
+    border: 1px solid #111827;
+    padding: 1.5rem 1.5rem 2rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.detail-card h1 {
+    margin-top: 0;
+}
+
+.rating-section {
+    margin-top: 1.5rem;
+}
+
+.rating-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.rating-form label {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.rating-form input,
+.rating-form select,
+.rating-form textarea {
+    background: #020617;
+    border: 1px solid #1f2937;
+    border-radius: 0.5rem;
+    color: #f9fafb;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.9rem;
+}
+
+.reviews-section {
+    margin-top: 1.5rem;
+}
+
+.reviews-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-item {
+    border-top: 1px solid #1f2937;
+    padding: 0.7rem 0;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Responsive */
+
+@media (max-width: 640px) {
+    .controls-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .favorites-toggle {
+        margin-left: 0;
+    }
+}
+
+
+/* ---------- Splash loading overlay ---------- */
+
+#splash-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #facc15 0, #0D1B2A 55%);
+    z-index: 1000;
+}
+
+#main-content {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.big-logo {
+    width: 110px;
+    height: 110px;
+    font-size: 3rem;
+}
+
+.splash-loading-text {
+    margin-top: 1rem;
+    color: #e5e7eb;
+    font-size: 0.9rem;
+}
+
+
+body.splash-screen {
+    background-color: #0D1B2A; /* dark blue */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.logo {
+    max-width: 25vw;
+    height: auto;
+    animation: fadeIn 1.3s ease-in-out;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+/* Logo */
+.logo-img {
+    max-width: 42vw;
+    height: auto;
+    animation: fadeIn 1.3s ease-in-out;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    0% { opacity: 0 };
+    100% { opacity: 1 };
+}
+
+
+/* ------- Cheese maze captcha ------- */
+
+/* ------- Cheese maze captcha ------- */
+
+/* ------- Cheese maze captcha ------- */
+
+.captcha-area {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px dashed #facc15;
+    background: #020617;
+}
+
+.captcha-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+    color: #facc15;
+}
+
+.captcha-instructions {
+    font-size: 0.8rem;
+    margin: 0 0 0.5rem;
+    color: #e5e7eb;
+}
+
+/* Maze container */
+#maze-container {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: 160px;
+    border-radius: 1rem;
+    border: 2px solid #facc15;
+    background: #020617;
+    margin-bottom: 0.4rem;
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Dark walls that create a zig-zag path */
+.maze-wall {
+    position: absolute;
+    background: #020617;
+    box-shadow: 0 0 0 10px #0b1120; /* thick wall */
+    border-radius: 0.5rem;
+}
+
+/* horizontal top wall */
+.wall-1 {
+    left: 20px;
+    top: 40px;
+    width: 250px;
+    height: 16px;
+}
+
+/* vertical middle wall */
+.wall-2 {
+    left: 120px;
+    top: 40px;
+    width: 16px;
+    height: 90px;
+}
+
+/* horizontal bottom wall */
+.wall-3 {
+    left: 40px;
+    bottom: 35px;
+    width: 230px;
+    height: 16px;
+}
+
+/* small vertical on right to force a turn */
+.wall-4 {
+    right: 60px;
+    top: 70px;
+    width: 16px;
+    height: 55px;
+}
+
+/* Start and end zones */
+#maze-start,
+#maze-end {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    border-radius: 0.75rem;
+    background: #111827;
+    color: #f9fafb;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #4b5563;
+}
+
+#maze-start {
+    left: 10px;
+    bottom: 15px;
+}
+
+#maze-end {
+    right: 10px;
+    top: 15px;
+}
+
+/* Little mouse that follows cursor */
+#maze-player {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+    pointer-events: none;   /* cursor can still hit start/end */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Status text */
+#maze-status {
+    font-size: 0.8rem;
+    color: #e5e7eb;
+}
+
+
+/* Sign up form layout */
+.signup-form {
+    max-width: 520px;
+    margin-top: 1rem;
+}
+
+.signup-form .form-row {
+    margin-bottom: 0.9rem;
+}
+
+.signup-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+    color: #e5e7eb;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+    padding: 0.45rem 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid #4b5563;
+    background: #020617;
+    color: #f9fafb;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+/* big primary button */
+.primary-button {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: none;
+    background: #facc15;
+    color: #111827;
+    font-weight: 600;
+    cursor: pointer;
+}
+.primary-button:hover {
+    background: #eab308;
+}
+
+
+/* Maze layout */
+#maze-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 0.5rem;
+}
+
+#maze-canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mouse emoji that follows cursor */
+#maze-player {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    font-size: 1.4rem;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+}
+
+/* Labels (visual only) */
+#maze-start-label,
+#maze-cheese-label {
+    position: absolute;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 999px;
+    background: #111827dd;
+    color: #f9fafb;
+    border: 1px solid #4b5563;
+}
+
+/* top-left START */
+#maze-start-label {
+    left: 8px;
+    top: 200px;
+}
+
+/* bottom-right cheese */
+#maze-cheese-label {
+    right: 18px;
+    bottom: 200px;
+}
+
+/* ===== Auth layout (login / signup) ===== */
+
+.auth-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px); /* minus nav */
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 520px;
+    background: #020617; /* same dark as rest */
+    border-radius: 24px;
+    padding: 2.25rem 2rem 2.5rem;
+    box-shadow:
+        0 22px 40px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+/* tabs at top of card */
+
+.auth-tabs {
+    display: inline-flex;
+    border-radius: 999px;
+    padding: 0.15rem;
+    background: rgba(30, 64, 175, 0.16);
+    margin-bottom: 1.5rem;
+}
+
+.auth-tab {
+    font-size: 0.85rem;
+    padding: 0.4rem 1.1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #e5e7eb;
+    opacity: 0.7;
+    transition: all 0.15s ease-out;
+}
+
+.auth-tab:hover {
+    opacity: 1;
+}
+
+.auth-tab--active {
+    background: #facc15;
+    color: #111827;
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* heading + subtitle */
+
+.auth-header h1 {
+    font-size: 1.6rem;
+    margin: 0.15rem 0 0.35rem;
+    color: #f9fafb;
+}
+
+.auth-subtitle {
+    margin: 0 0 1.75rem;
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.auth-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    background: rgba(250, 204, 21, 0.1);
+    color: #facc15;
+}
+
+/* form elements */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: #e5e7eb;
+}
+
+.auth-input {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    padding: 0.55rem 0.9rem;
+    color: #f9fafb;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out,
+        background 0.15s ease-out;
+}
+
+.auth-input:focus {
+    border-color: #facc15;
+    box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.4);
+    background: rgba(15, 23, 42, 1);
+}
+
+/* button */
+
+.primary-button.auth-button {
+    width: 100%;
+    border-radius: 999px;
+    background: #facc15;
+    color: #111827;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.12s ease-out, box-shadow 0.12s ease-out,
+        background 0.12s ease-out;
+}
+
+.primary-button.auth-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 25px rgba(250, 204, 21, 0.45);
+    background: #fbbf24;
+}
+
+.primary-button.auth-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* footer text inside card */
+
+.auth-actions {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.auth-switch {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.auth-switch a {
+    color: #facc15;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* error message (if you pass error from Flask) */
+
+.auth-error {
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    background: rgba(248, 113, 113, 0.12);
+    color: #fecaca;
+    border: 1px solid rgba(248, 113, 113, 0.6);
+    font-size: 0.85rem;
+}
+
+
+#maze-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#maze-canvas {
+    display: block;
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+#maze-player {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;       /* don't block mouse */
+    font-size: 20px;
+}
+
+/* Start and cheese labels – visually small, but used as hitboxes */
+#maze-start-label,
+#maze-cheese-label {
+    position: absolute;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 12px;
+}
+
+/* tweak these to line up with your maze image */
+#maze-start-label {
+    left: 10px;
+    top: 200px;
+}
+
+#maze-cheese-label {
+    right: 10px;
+    bottom: 200px;
+}
+
+
+.certified-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.certified-badge img {
+    width: 70px; /* smaller since it's in corner */
+    height: auto;
+}
+
+
+
+/* Add this to your CSS file */
+
+.auth-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    position: relative; /* ADD THIS */
+    overflow: hidden; /* ADD THIS to prevent horizontal scroll */
+}
+
+/* Big grater decoration */
+.grater-decoration {
+    position: fixed;
+    right: 50px; /* slightly off screen */
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg); /* centered vertically, tilted */
+    width: 400px;
+    height: auto;
+    opacity: 0.15; /* subtle, not overpowering */
+    pointer-events: none; /* don't block clicks */
+    z-index: 0;
+    animation: floatGrater 8s ease-in-out infinite;
+}
+
+@keyframes floatGrater {
+    0%, 100% {
+        transform: translateY(-50%) rotate(-15deg);
+    }
+    50% {
+        transform: translateY(-55%) rotate(-13deg);
+    }
+}
+
+/* Make sure card is above decoration */
+.auth-card {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Left side decoration */
+.left-decoration {
+    position: fixed;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+    width: 400px;
+    height: auto;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatLeft 8s ease-in-out infinite;
+}
+
+@keyframes floatLeft {
+    0%, 100% {
+        transform: translateY(-50%) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-55%) rotate(13deg);
+    }
+}
+
+
+
+/* ========================================
+   HOME PAGE STYLES
+   ======================================== */
+
+/* Hero Banner */
+.hero-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 5rem 2rem;
+    text-align: center;
+    border-bottom: 2px solid #facc15;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin: 0 0 1rem;
+    color: #f9fafb;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: #e5e7eb;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-button {
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+}
+
+/* Deals Section */
+.deals-section {
+    padding: 3rem 0;
+    background: #020617;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: #f9fafb;
+}
+
+.coupons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.coupon-card {
+    background: #0f172a;
+    border: 1px solid #1f2937;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.coupon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(250, 204, 21, 0.2);
+    border-color: #facc15;
+}
+
+.coupon-badge {
+    position: absolute;
+    top: -12px;
+    right: 15px;
+    background: #facc15;
+    color: #111827;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.coupon-icon {
+    width: 80px;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.coupon-card h3 {
+    margin: 0.5rem 0;
+    color: #f9fafb;
+    font-size: 1.2rem;
+}
+
+.coupon-card p {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.coupon-code {
+    display: inline-block;
+    background: rgba(250, 204, 21, 0.1);
+    color: #facc15;
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    border: 1px dashed #facc15;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+.contact-footer {
+    background: #0f172a;
+    border-top: 1px solid #1f2937;
+    padding: 3rem 0 1rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-col h3, .footer-col h4 {
+    color: #facc15;
+    margin-bottom: 1rem;
+}
+
+.footer-col p, .footer-col ul {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #facc15;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #1f2937;
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .coupons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+/* ========================================
+   DISCOVER PAGE CSS UPDATES
+   Copy and REPLACE the existing sections in your style.css
+   ======================================== */
+
+/* ===== CONTROLS BAR - REPLACE EXISTING ===== */
+.controls-bar {
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #facc15;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.controls-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.controls-form label {
+    font-size: 0.9rem;
+    color: #f9fafb;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.controls-form select {
+    background: #020617;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    color: #f9fafb;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.controls-form select:hover {
+    border-color: #facc15;
+}
+
+.controls-form select:focus {
+    outline: none;
+    border-color: #facc15;
+    box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.2);
+}
+
+.favorites-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.favorites-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #facc15;
+}
+
+/* ===== CARDS - REPLACE EXISTING ===== */
+.biz-card {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 1rem;
+    border: 1px solid #1f2937;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+}
+
+.biz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(250, 204, 21, 0.15);
+    border-color: #facc15;
+}
+
+/* ===== FAVORITE BUTTON - REPLACE EXISTING ===== */
+.favorite-button {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    padding: 0;
+    line-height: 1;
+}
+
+.favorite-button:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+/* ===== CERTIFIED BADGE - REPLACE EXISTING ===== */
+.certified-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.certified-badge img {
+    width: 70px;
+    height: auto;
+    filter: brightness(0.9) contrast(1.1);
+}
+
+
+/* ========================================
+   UPDATED DISCOVER PAGE CSS WITH BACKGROUND IMAGES
+   Replace these sections in your style.css
+   ======================================== */
+
+/* ===== BIZ CARD WITH BACKGROUND IMAGE - REPLACE EXISTING .biz-card ===== */
+.biz-card {
+    background: #0f172a;
+    border-radius: 1rem;
+    border: 1px solid #1f2937;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.biz-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(250, 204, 21, 0.15);
+    border-color: #facc15;
+}
+
+/* ===== CATEGORY BACKGROUND - ADD THIS NEW SECTION ===== */
+.category-background {
+    width: 100%;
+    height: 120px;
+    background-size: contain;  /* Shrinks image to fit if too big */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    opacity: 0.4;
+}
+
+.category-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, #0f172a 90%);
+}
+
+/* ===== CARD CONTENT - ADD THIS NEW SECTION ===== */
+.card-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+/* ===== BIZ HEADER - UPDATE IF YOU HAVE IT ===== */
+.biz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-content h2 {
+    margin: 0;
+    font-size: 1.05rem;
+}
+
+/* ===== CONTROLS BAR - REPLACE EXISTING ===== */
+.controls-bar {
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid #facc15;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.controls-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+.controls-form label {
+    font-size: 0.9rem;
+    color: #f9fafb;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.controls-form select {
+    background: #020617;
+    border: 1px solid #4b5563;
+    border-radius: 0.5rem;
+    color: #f9fafb;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.controls-form select:hover {
+    border-color: #facc15;
+}
+
+.controls-form select:focus {
+    outline: none;
+    border-color: #facc15;
+    box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.2);
+}
+
+.favorites-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.favorites-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #facc15;
+}
+
+/* ===== FAVORITE BUTTON - REPLACE EXISTING ===== */
+.favorite-button {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    padding: 0;
+    line-height: 1;
+}
+
+.favorite-button:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+/* ===== CERTIFIED BADGE - REPLACE EXISTING ===== */
+.certified-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+}
+
+.certified-badge img {
+    width: 70px;
+    height: auto;
+    filter: none;
+}
+
+
+/* Business image on detail page */
+/* Business image on detail page - bigger and faded into background */
+.detail-business-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;  /* Much bigger */
+    height: 300px;
+    background-size: contain;
+    background-position: top right;
+    background-repeat: no-repeat;
+    opacity: 0.15;  /* More faded */
+    border-radius: 0 1.2rem 0 0;  /* Matches card corner */
+    pointer-events: none;  /* Don't block clicks */
+}
+
+/* Update detail-card background color */
+.detail-card {
+    background: #0f172a;  /* Changed from #020617 */
+    border-radius: 1.2rem;
+    border: 1px solid #111827;
+    padding: 1.5rem 1.5rem 2rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    position: relative;
+}
+
+/* Make sure content stays above image */
+.detail-card h1,
+.detail-card h2,
+.detail-card h3,
+.detail-card p,
+.detail-card section {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* FAQ Page Styles */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.faq-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #f9fafb;
+}
+
+.faq-subtitle {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.faq-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-item {
+    background: #0f172a;
+    border: 1px solid #1f2937;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faq-item:hover {
+    border-color: #facc15;
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.1);
+}
+
+.faq-question {
+    color: #facc15;
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem 0;
+}
+
+.faq-answer {
+    color: #e5e7eb;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.faq-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: #0f172a;
+    border: 1px solid #facc15;
+    border-radius: 1rem;
+}
+
+.faq-cta h2 {
+    color: #f9fafb;
+    margin-bottom: 0.5rem;
+}
+
+.faq-cta p {
+    color: #9ca3af;
+    margin-bottom: 1.5rem;
+}
+
+.faq-cta a[href^="mailto"] {
+    color: #facc15;
+    text-decoration: none;
+}
+
+.faq-cta a[href^="mailto"]:hover {
+    text-decoration: underline;
+}
