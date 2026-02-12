@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Discover Businesses - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+    <div class="nav-right">
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('discover') }}" class="nav-link active">Discover</a>
+
+        {% if current_user %}
+            <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a>
+            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a>
+        {% endif %}
+    </div>
+
+</header>
+
+<main class="page-container">
+    <section class="controls-bar">
+        <form method="get" class="controls-form">
+            <label>
+                Category:
+                <select name="category" onchange="this.form.submit()">
+                    <option value="all" {% if category_filter == 'all' %}selected{% endif %}>All</option>
+                    {% for cat in categories %}
+                        <option value="{{ cat }}" {% if category_filter == cat %}selected{% endif %}>
+                            {{ cat }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </label>
+
+            <label>
+                Sort by:
+                <select name="sort" onchange="this.form.submit()">
+                    <option value="name" {% if sort_by == 'name' %}selected{% endif %}>Name</option>
+                    <option value="category" {% if sort_by == 'category' %}selected{% endif %}>Category</option>
+                    <option value="rating" {% if sort_by == 'rating' %}selected{% endif %}>Cheese Rating</option>
+                </select>
+            </label>
+
+            <label class="favorites-toggle">
+                <input type="checkbox" name="favorites" value="yes"
+                       onchange="this.form.submit()"
+                       {% if favorites_only == 'yes' %}checked{% endif %}>
+                Favorites only
+            </label>
+        </form>
+    </section>
+
+    <section class="cards-grid">
+        {% for b in businesses %}
+            <article class="biz-card" id="biz-{{ b.id }}">
+                <!-- Category background image -->
+                <div class="category-background" style="background-image: url('{{ url_for('static', filename='images/businesses/' + b.image) }}');"></div>
+                <div class="card-content">
+                    <div class="biz-header">
+                        <h2>{{ b.name }}</h2>
+                        <form method="post" action="{{ url_for('toggle_favorite', biz_id=b.id) }}">
+                            <input type="hidden" name="next" value="{{ request.full_path }}">
+                            <button class="favorite-button" type="submit" title="{% if b.favorite %}Remove from favorites{% else %}Add to favorites{% endif %}">
+                                {% if b.favorite %}
+                                    🐭
+                                {% else %}
+                                    ➕
+                                {% endif %}
+                            </button>
+                        </form>
+                    </div>
+
+                    {% if b.avg_rating and b.avg_rating >= 4.5 and b.ratings_count and b.ratings_count >= 5 %}
+                        <div class="certified-badge">
+                            <img src="{{ url_for('static', filename='images/certified_grateness.png') }}"
+                                 alt="Certified Grateness"
+                                 title="Certified Grateness - 4.5+ stars with 5+ ratings">
+                        </div>
+                    {% endif %}
+
+                    <p class="biz-category">{{ b.category }}</p>
+                    <p class="biz-description">{{ b.description }}</p>
+                    <p class="biz-rating">
+                        Cheese Score:
+                        {% if b.avg_rating and b.ratings_count %}
+                            {{ b.avg_rating }} / 5 🧀 ({{ b.ratings_count }} ratings)
+                        {% else %}
+                            No cheese grated yet
+                        {% endif %}
+                    </p>
+                    <a class="secondary-button"
+                       href="{{ url_for('business_detail', biz_id=b.id) }}">
+                        View &amp; Grate →
+                    </a>
+                </div>
+            </article>
+        {% else %}
+            <p>No businesses match this filter yet.</p>
+        {% endfor %}
+    </section>
+</main>
+</body>
+</html>
