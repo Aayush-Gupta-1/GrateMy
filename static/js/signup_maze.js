@@ -98,7 +98,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (insideStartZone(x, y)) {
                 started = true;
                 statusEl.textContent =
-                    "Nice! Stay on the white path and reach the cheese 🧀.";
+                    "Nice! Stay off the white walls and reach the cheese 🧀.";
             }
             return;
         }
