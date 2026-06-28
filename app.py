@@ -162,19 +162,6 @@ def discover():
     category_filter = request.args.get("category", "all")
     favorites_only = request.args.get("favorites", "no")
 
-    username = session.get("user")
-    users = load_json(USERS_FILE, [])
-
-    current_user_data = next(
-        (u for u in users if username and u["username"].lower() == username.lower()),
-        None
-    )
-
-    user_favorites = current_user_data.get("favorites", []) if current_user_data else []
-    user_favorites = [str(fav) for fav in user_favorites]
-
-    for b in businesses:
-        b["favorite"] = str(b["id"]) in user_favorites
 
     if category_filter != "all":
         businesses = [b for b in businesses if b.get("category") == category_filter]
@@ -321,28 +308,14 @@ def profile():
 @app.route("/toggle_favorite/<int:biz_id>", methods=["POST"])
 def toggle_favorite(biz_id):
     """Toggle favorite for the logged-in user only."""
-    username = session.get("user")
+    businesses = load_json(BUSINESSES_FILE, [])
 
-    if not username:
-        return redirect(url_for("login"))
-
-    users = load_json(USERS_FILE, [])
-
-    for u in users:
-        if u["username"].lower() == username.lower():
-            if "favorites" not in u:
-                u["favorites"] = []
-
-            biz_id_str = str(biz_id)
-
-            if biz_id_str in u["favorites"]:
-                u["favorites"].remove(biz_id_str)
-            else:
-                u["favorites"].append(biz_id_str)
-
-            break
-
-    save_json(USERS_FILE, users)
+        for b in businesses:
+            if int(b["id"]) == int(biz_id):
+                b["favorite"] = not b.get("favorite", False)
+                break
+        
+        save_json(BUSINESSES_FILE, businesses)
 
     next_url = request.form.get("next", url_for("discover"))
     return redirect(next_url + f"#biz-{biz_id}")
