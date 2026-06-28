@@ -8,6 +8,7 @@ from flask import (
 )
 import json
 import os
+import re
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
@@ -63,6 +64,18 @@ def signup():
         # basic validation
         if not username or not password:
             error = "Username and password are required."
+            return render_template("signup.html", error=error)
+
+        if (
+            len(password) < 8
+            or not re.search(r"[A-Z]", password)
+            or not re.search(r"[a-z]", password)
+            or not re.search(r"\d", password)
+        ):
+            error = (
+                "Password must be at least 8 characters long and contain "
+                "at least one uppercase letter, one lowercase letter, and one number."
+            )
             return render_template("signup.html", error=error)
 
         if password != confirm:
@@ -206,6 +219,10 @@ def business_detail(biz_id):
     if request.method == "POST":
         rating_str = request.form.get("rating", "").strip()
         comment = request.form.get("comment", "").strip()
+
+        if len(comment) > 300:
+            return "Review comment must be 300 characters or less.", 400
+            
         user_name = request.form.get("user", "").strip()
 
         # If logged-in, default name to username
@@ -310,12 +327,12 @@ def toggle_favorite(biz_id):
     """Toggle favorite for the logged-in user only."""
     businesses = load_json(BUSINESSES_FILE, [])
 
-        for b in businesses:
-            if int(b["id"]) == int(biz_id):
-                b["favorite"] = not b.get("favorite", False)
-                break
+    for b in businesses:
+        if int(b["id"]) == int(biz_id):
+            b["favorite"] = not b.get("favorite", False)
+            break
         
-        save_json(BUSINESSES_FILE, businesses)
+    save_json(BUSINESSES_FILE, businesses)
 
     next_url = request.form.get("next", url_for("discover"))
     return redirect(next_url + f"#biz-{biz_id}")
