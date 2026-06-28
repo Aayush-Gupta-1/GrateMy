@@ -66,6 +66,13 @@ def signup():
             error = "Username and password are required."
             return render_template("signup.html", error=error)
 
+        if not re.match(r"^[A-Za-z0-9_]{3,20}$", username):
+            error = (
+                "Username must be 3-20 characters and may only contain "
+                "letters, numbers, and underscores."
+            )
+            return render_template("signup.html", error=error)
+
         if (
             len(password) < 8
             or not re.search(r"[A-Z]", password)
