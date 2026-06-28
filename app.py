@@ -163,28 +163,25 @@ def discover():
     favorites_only = request.args.get("favorites", "no")
 
     username = session.get("user")
-        users = load_json(USERS_FILE, [])
-        
-        current_user_data = next(
-            (u for u in users if u["username"].lower() == username.lower()),
-            None
-        ) if username else None
-        
-        user_favorites = current_user_data.get("favorites", []) if current_user_data else []
-        user_favorites = [str(fav) for fav in user_favorites]
-        
-        for b in businesses:
-            b["favorite"] = str(b["id"]) in user_favorites
+    users = load_json(USERS_FILE, [])
 
-    # Filter by category
+    current_user_data = next(
+        (u for u in users if username and u["username"].lower() == username.lower()),
+        None
+    )
+
+    user_favorites = current_user_data.get("favorites", []) if current_user_data else []
+    user_favorites = [str(fav) for fav in user_favorites]
+
+    for b in businesses:
+        b["favorite"] = str(b["id"]) in user_favorites
+
     if category_filter != "all":
         businesses = [b for b in businesses if b.get("category") == category_filter]
 
-    # Filter favorites
     if favorites_only == "yes":
         businesses = [b for b in businesses if b.get("favorite")]
 
-    # Sorting
     if sort_by == "rating":
         businesses = sorted(
             businesses,
@@ -196,7 +193,6 @@ def discover():
     else:
         businesses = sorted(businesses, key=lambda b: b.get("name", ""))
 
-    # Build list of categories for dropdown
     all_businesses = load_json(BUSINESSES_FILE, [])
     categories = sorted({b.get("category", "") for b in all_businesses})
 
@@ -208,7 +204,6 @@ def discover():
         categories=categories,
         favorites_only=favorites_only,
     )
-
 
 @app.route("/business/<int:biz_id>", methods=["GET", "POST"])
 def business_detail(biz_id):
@@ -325,34 +320,31 @@ def profile():
 
 @app.route("/toggle_favorite/<int:biz_id>", methods=["POST"])
 def toggle_favorite(biz_id):
-    """Toggle the 'favorite' flag for a business."""
+    """Toggle favorite for the logged-in user only."""
     username = session.get("user")
-        if not username:
-            return redirect(url_for("login"))
-        
-        users = load_json(USERS_FILE, [])
-        
-        for u in users:
-            if u["username"].lower() == username.lower():
-        
-                if "favorites" not in u:
-                    u["favorites"] = []
-        
-                biz_id_str = str(biz_id)
-        
-                if biz_id_str in u["favorites"]:
-                    u["favorites"].remove(biz_id_str)
-                else:
-                    u["favorites"].append(biz_id_str)
-        
-                break
-        
-        save_json(USERS_FILE, users)
 
-    # Keep scroll position by redirecting back with anchor
+    if not username:
+        return redirect(url_for("login"))
+
+    users = load_json(USERS_FILE, [])
+
+    for u in users:
+        if u["username"].lower() == username.lower():
+            if "favorites" not in u:
+                u["favorites"] = []
+
+            biz_id_str = str(biz_id)
+
+            if biz_id_str in u["favorites"]:
+                u["favorites"].remove(biz_id_str)
+            else:
+                u["favorites"].append(biz_id_str)
+
+            break
+
+    save_json(USERS_FILE, users)
+
     next_url = request.form.get("next", url_for("discover"))
-
-    # Add fragment to maintain scroll position
     return redirect(next_url + f"#biz-{biz_id}")
 
 @app.route("/home")
