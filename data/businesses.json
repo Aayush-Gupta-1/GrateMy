@@ -7,7 +7,6 @@
     "image": "cheddar-corner-cafe.png",
     "avg_rating": 4.6,
     "ratings_count": 12,
-    "favorite": false
   },
   {
     "id": 2,
@@ -17,7 +16,6 @@
     "image": "midnight-slice-pizza.png",
     "avg_rating": 4.3,
     "ratings_count": 9,
-    "favorite": false
   },
   {
     "id": 3,
@@ -27,7 +25,6 @@
     "image": "bao-and-brew.png",
     "avg_rating": 3.0,
     "ratings_count": 1,
-    "favorite": false
   },
   {
     "id": 4,
@@ -37,7 +34,6 @@
     "image": "green-fork-salad-bar.png",
     "avg_rating": 4.1,
     "ratings_count": 5,
-    "favorite": false
   },
   {
     "id": 5,
@@ -47,7 +43,6 @@
     "image": "thread-theory.png",
     "avg_rating": 4.7,
     "ratings_count": 10,
-    "favorite": false
   },
   {
     "id": 6,
@@ -57,7 +52,6 @@
     "image": "locker-room-thrift.png",
     "avg_rating": 4.5,
     "ratings_count": 6,
-    "favorite": false
   },
   {
     "id": 7,
@@ -67,7 +61,6 @@
     "image": "campus-kicks.png",
     "avg_rating": 4.75,
     "ratings_count": 4,
-    "favorite": true
   },
   {
     "id": 8,
@@ -77,7 +70,6 @@
     "image": "study-sweat-co.png",
     "avg_rating": 4.9,
     "ratings_count": 4,
-    "favorite": false
   },
   {
     "id": 9,
@@ -87,7 +79,6 @@
     "image": "tech-rescue-repair.png",
     "avg_rating": 4.4,
     "ratings_count": 11,
-    "favorite": false
   },
   {
     "id": 10,
@@ -97,7 +88,6 @@
     "image": "sparkle-and-spin-laundry.png",
     "avg_rating": 4.0,
     "ratings_count": 5,
-    "favorite": false
   },
   {
     "id": 11,
@@ -107,7 +97,6 @@
     "image": "focusride-tutors.png",
     "avg_rating": 4.0,
     "ratings_count": 1,
-    "favorite": true
   },
   {
     "id": 12,
@@ -117,7 +106,6 @@
     "image": "snapshot-studio.png",
     "avg_rating": 4.3,
     "ratings_count": 3,
-    "favorite": false
   },
   {
     "id": 13,
@@ -127,7 +115,6 @@
     "image": "level-up-arcade-lounge.png",
     "avg_rating": 4.6,
     "ratings_count": 7,
-    "favorite": false
   },
   {
     "id": 14,
@@ -137,7 +124,6 @@
     "image": "starlight-mini-golf.png",
     "avg_rating": 5.0,
     "ratings_count": 1,
-    "favorite": false
   },
   {
     "id": 15,
@@ -147,7 +133,6 @@
     "image": "reel-night-cinema.png",
     "avg_rating": 4.5,
     "ratings_count": 6,
-    "favorite": false
   },
   {
     "id": 16,
@@ -157,6 +142,5 @@
     "image": "open-mic-hub.png",
     "avg_rating": 4.1,
     "ratings_count": 5,
-    "favorite": false
   }
 ]
