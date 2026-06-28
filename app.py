@@ -107,6 +107,7 @@ def signup_maze():
             users.append({
                 "username": pending["username"],
                 "password_hash": pending["password_hash"],
+                "favorites": []
             })
             save_json(USERS_FILE, users)
 
@@ -160,6 +161,20 @@ def discover():
     sort_by = request.args.get("sort", "name")
     category_filter = request.args.get("category", "all")
     favorites_only = request.args.get("favorites", "no")
+
+    username = session.get("user")
+        users = load_json(USERS_FILE, [])
+        
+        current_user_data = next(
+            (u for u in users if u["username"].lower() == username.lower()),
+            None
+        ) if username else None
+        
+        user_favorites = current_user_data.get("favorites", []) if current_user_data else []
+        user_favorites = [str(fav) for fav in user_favorites]
+        
+        for b in businesses:
+            b["favorite"] = str(b["id"]) in user_favorites
 
     # Filter by category
     if category_filter != "all":
