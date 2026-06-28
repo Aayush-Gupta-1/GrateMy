@@ -311,12 +311,28 @@ def profile():
 @app.route("/toggle_favorite/<int:biz_id>", methods=["POST"])
 def toggle_favorite(biz_id):
     """Toggle the 'favorite' flag for a business."""
-    businesses = load_json(BUSINESSES_FILE, [])
-    for b in businesses:
-        if int(b["id"]) == int(biz_id):
-            b["favorite"] = not b.get("favorite", False)
-            break
-    save_json(BUSINESSES_FILE, businesses)
+    username = session.get("user")
+        if not username:
+            return redirect(url_for("login"))
+        
+        users = load_json(USERS_FILE, [])
+        
+        for u in users:
+            if u["username"].lower() == username.lower():
+        
+                if "favorites" not in u:
+                    u["favorites"] = []
+        
+                biz_id_str = str(biz_id)
+        
+                if biz_id_str in u["favorites"]:
+                    u["favorites"].remove(biz_id_str)
+                else:
+                    u["favorites"].append(biz_id_str)
+        
+                break
+        
+        save_json(USERS_FILE, users)
 
     # Keep scroll position by redirecting back with anchor
     next_url = request.form.get("next", url_for("discover"))
