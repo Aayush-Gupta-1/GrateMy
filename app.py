@@ -230,13 +230,10 @@ def business_detail(biz_id):
         if len(comment) > 300:
             return "Review comment must be 300 characters or less.", 400
             
-        user_name = request.form.get("user", "").strip()
-
-        # If logged-in, default name to username
-        if not user_name and session.get("user"):
-            user_name = session["user"]
-        if not user_name:
-            user_name = "Anonymous"
+          if not session.get("user"):
+            return redirect(url_for("login"))
+        
+        user_name = session["user"]
 
         try:
             rating = int(rating_str)
