@@ -230,7 +230,7 @@ def business_detail(biz_id):
         if len(comment) > 300:
             return "Review comment must be 300 characters or less.", 400
             
-          if not session.get("user"):
+        if not session.get("user"):
             return redirect(url_for("login"))
         
         user_name = session["user"]
