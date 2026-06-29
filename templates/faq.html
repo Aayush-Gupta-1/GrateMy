@@ -8,7 +8,6 @@
 </head>
 <body>
 
-<!-- Navigation -->
 <header class="top-nav">
     <div class="nav-left">
         <span class="nav-logo">🧀</span>
@@ -30,118 +29,150 @@
 
 <main class="page-container">
     <div class="faq-container">
-        <h1>🧀 Frequently Asked Questions</h1>
-        <p class="faq-subtitle">Got questions? We've got answers about Grate My Service!</p>
+        <h1>🧀 Ask GrateBot</h1>
+        <p class="faq-subtitle">Search or choose a question to get help using Grate My Service.</p>
 
-        <div class="faq-section">
-            <div class="faq-item">
-                <h3 class="faq-question">What is Grate My Service?</h3>
-                <p class="faq-answer">Grate My Service is a student-focused platform where you can discover, review, and rate local businesses using our unique cheese rating system (1-5 🧀).</p>
+        <section class="faq-cta">
+            <h2>Interactive Q&A Help</h2>
+
+            <label class="auth-label" for="faq-search">Search by keyword</label>
+            <input
+                id="faq-search"
+                class="auth-input"
+                type="text"
+                placeholder="Try: reviews, coupons, favorites, maze..."
+            >
+
+            <label class="auth-label" for="faq-select" style="margin-top: 1rem;">Choose a question</label>
+            <select id="faq-select" class="auth-input">
+                <option value="">Select a question...</option>
+            </select>
+
+            <div id="faq-answer-box" class="faq-item" style="margin-top: 1.5rem; display: none;">
+                <h3 id="faq-question" class="faq-question"></h3>
+                <p id="faq-answer" class="faq-answer"></p>
             </div>
 
-            <div class="faq-item">
-                <h3 class="faq-question">How does the cheese rating system work?</h3>
-                <p class="faq-answer">Businesses are rated from 1 to 5 cheese wheels (🧀). 1 cheese = not grate, 5 cheese = truly grate! The average of all ratings determines the business's Cheese Score.</p>
+            <div class="faq-cta" style="margin-top: 1.5rem;">
+                <h2>Question not listed?</h2>
+                <p>Email us and we’ll help you out.</p>
+                <a
+                    class="primary-button"
+                    href="mailto:hello@gratemyservice.com?subject=Question%20about%20Grate%20My%20Service"
+                >
+                    Send a Question
+                </a>
             </div>
+        </section>
 
-            <div class="faq-item">
-                <h3 class="faq-question">Do I need to create an account to browse?</h3>
-                <p class="faq-answer">Yes and you'll need to sign up to leave reviews and save favorites.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">What is the Certified Grateness badge?</h3>
-                <p class="faq-answer">Businesses with 4.5+ stars and at least 5 reviews earn our Certified Grateness badge, showing they consistently deliver great service.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">How do I leave a review?</h3>
-                <p class="faq-answer">Click on any business card, then scroll to the "Grate this service" section. Select your cheese rating, write your experience, and submit!</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Can I edit or delete my reviews?</h3>
-                <p class="faq-answer">Currently, reviews are permanent once submitted. Make sure you're happy with your rating before submitting!</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">How do I use coupon codes?</h3>
-                <p class="faq-answer">Find coupon codes on our home page. Simply show the code to the business when you visit or enter it at checkout if shopping online.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">How do favorites work?</h3>
-                <p class="faq-answer">Click the ➕ button on any business card to add it to your favorites (it becomes a 🐭). Use the "Favorites only" filter to see just your saved places.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">What's with the mouse emoji?</h3>
-                <p class="faq-answer">Mice love cheese, just like you love your favorite businesses! The 🐭 shows places you've saved.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Can I review a business multiple times?</h3>
-                <p class="faq-answer">Yes! You can leave multiple reviews if you visit a business again and have a new experience to share.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">How are businesses added to the platform?</h3>
-                <p class="faq-answer">We curate local student-friendly businesses. If you'd like to suggest a business, contact us!</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Are the deals and coupons real?</h3>
-                <p class="faq-answer">Yes! All coupons on our home page are valid offers from participating businesses. Check expiration dates and terms.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Can I sort businesses by rating?</h3>
-                <p class="faq-answer">Absolutely! Use the "Sort by" dropdown and select "Cheese Rating" to see the highest-rated businesses first.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">What categories are available?</h3>
-                <p class="faq-answer">We have Food, Clothing, Services, and Entertainment categories. Filter by category to find exactly what you need.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Is my review anonymous?</h3>
-                <p class="faq-answer">You can leave your name or stay "Anonymous" when submitting a review. It's your choice!</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Why do I need to complete the maze during signup?</h3>
-                <p class="faq-answer">The cheese maze is our fun CAPTCHA system to verify you're not a bot. Guide the mouse to the cheese!</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Can businesses respond to reviews?</h3>
-                <p class="faq-answer">Not currently, but we're considering adding this feature in the future!</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">How often are new deals added?</h3>
-                <p class="faq-answer">We update deals regularly! Check the home page frequently for new coupon codes and discounts.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">Is Grate My Service free to use?</h3>
-                <p class="faq-answer">Yes! Grate My Service is completely free for students. Browse, review, and save favorites at no cost.</p>
-            </div>
-
-            <div class="faq-item">
-                <h3 class="faq-question">How do I contact support?</h3>
-                <p class="faq-answer">Email us at hello@gratemyservice.com or find our contact info in the footer. We typically respond within 24 hours!</p>
-            </div>
-        </div>
-
-        <div class="faq-cta">
-            <h2>Still have questions?</h2>
-            <p>Contact us at <a href="mailto:hello@gratemyservice.com">hello@gratemyservice.com</a></p>
-            <a href="{{ url_for('home') }}" class="primary-button">Back to Home</a>
-        </div>
+        <a href="{{ url_for('home') }}" class="secondary-button">← Back to Home</a>
     </div>
 </main>
+
+<script>
+    const faqs = [
+        {
+            question: "What is Grate My Service?",
+            answer: "Grate My Service is a student-focused platform where users can discover, review, and rate local businesses using a 1-5 cheese rating system."
+        },
+        {
+            question: "How does the cheese rating system work?",
+            answer: "Businesses are rated from 1 to 5 cheese wheels. The average of all submitted ratings becomes the business's Cheese Score."
+        },
+        {
+            question: "Do I need an account to browse?",
+            answer: "Yes. Users create an account so reviews and profile activity can be connected to the correct user."
+        },
+        {
+            question: "How do I leave a review?",
+            answer: "Open a business page, choose a cheese rating, write your experience, and submit your review. Your review is automatically tied to your logged-in username."
+        },
+        {
+            question: "How do favorites work?",
+            answer: "Click the favorite button on a business card to save it. You can use the Favorites only filter to view saved businesses."
+        },
+        {
+            question: "How do I use coupon codes?",
+            answer: "Coupon codes are shown on the home page. Users can show or enter the code when visiting a participating business."
+        },
+        {
+            question: "Why do I complete a maze during signup?",
+            answer: "The cheese maze is a CAPTCHA-style verification step that helps prevent bot activity during account creation."
+        },
+        {
+            question: "Can I sort businesses by rating?",
+            answer: "Yes. On the Discover page, use the Sort by dropdown to organize businesses by name, category, or cheese rating."
+        },
+        {
+            question: "What categories are available?",
+            answer: "Businesses are organized into categories such as Food, Clothing, Services, and Entertainment."
+        },
+        {
+            question: "What is the Certified Grateness badge?",
+            answer: "Businesses with strong ratings and enough reviews can earn the Certified Grateness badge, showing consistent quality."
+        },
+        {
+            question: "Is my review anonymous?",
+            answer: "No. Reviews are connected to the logged-in user's account to improve trust and prevent impersonation."
+        },
+        {
+            question: "Is Grate My Service free?",
+            answer: "Yes. Users can browse, review, save favorites, and view coupons for free."
+        }
+    ];
+
+    const searchInput = document.getElementById("faq-search");
+    const faqSelect = document.getElementById("faq-select");
+    const answerBox = document.getElementById("faq-answer-box");
+    const questionText = document.getElementById("faq-question");
+    const answerText = document.getElementById("faq-answer");
+
+    function loadQuestions(list) {
+        faqSelect.innerHTML = '<option value="">Select a question...</option>';
+
+        list.forEach((faq, index) => {
+            const option = document.createElement("option");
+            option.value = index;
+            option.textContent = faq.question;
+            faqSelect.appendChild(option);
+        });
+    }
+
+    function showAnswer(faq) {
+        questionText.textContent = faq.question;
+        answerText.textContent = faq.answer;
+        answerBox.style.display = "block";
+    }
+
+    loadQuestions(faqs);
+
+    faqSelect.addEventListener("change", function () {
+        const selectedIndex = this.value;
+        if (selectedIndex === "") {
+            answerBox.style.display = "none";
+            return;
+        }
+
+        showAnswer(faqs[selectedIndex]);
+    });
+
+    searchInput.addEventListener("input", function () {
+        const keyword = this.value.toLowerCase();
+
+        const filteredFaqs = faqs.filter(faq =>
+            faq.question.toLowerCase().includes(keyword) ||
+            faq.answer.toLowerCase().includes(keyword)
+        );
+
+        loadQuestions(filteredFaqs);
+
+        if (filteredFaqs.length === 1) {
+            showAnswer(filteredFaqs[0]);
+        } else {
+            answerBox.style.display = "none";
+        }
+    });
+</script>
 
 </body>
 </html>
