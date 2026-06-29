@@ -4,11 +4,14 @@ from flask import (
     request,
     redirect,
     url_for,
-    session
+    session,
+    Response
 )
 import json  # lets us read and write JSON files
 import os  # lets us work with file paths
 import re  # lets us check text patterns (like usernames and passwords)
+import csv  # lets us build CSV files
+import io  # lets us build the CSV file in memory before sending it
 from werkzeug.security import generate_password_hash, check_password_hash  # tools to safely hash and check passwords
 
 app = Flask(__name__)  # create the Flask app
@@ -211,6 +214,48 @@ def discover():
         categories=categories,
         favorites_only=favorites_only,
     )
+
+
+@app.route("/discover/download-csv")
+def download_csv():
+    """Build a CSV report of all businesses and send it as a file download."""
+    businesses = load_json(BUSINESSES_FILE, [])  # get all the businesses
+
+    output = io.StringIO()  # a text buffer to build the CSV in memory
+    writer = csv.writer(output)
+
+    # header row
+    writer.writerow([
+        "ID",
+        "Name",
+        "Category",
+        "Description",
+        "Average Rating",
+        "Number of Ratings",
+        "Favorite",
+    ])
+
+    # one row per business
+    for b in businesses:
+        writer.writerow([
+            b.get("id", ""),
+            b.get("name", ""),
+            b.get("category", ""),
+            b.get("description", ""),
+            b.get("avg_rating", ""),
+            b.get("ratings_count", ""),
+            "Yes" if b.get("favorite") else "No",
+        ])
+
+    csv_data = output.getvalue()
+
+    # send it back as a downloadable CSV file
+    return Response(
+        csv_data,
+        mimetype="text/csv",
+        headers={"Content-Disposition": "attachment; filename=business_report.csv"},
+    )
+
 
 @app.route("/business/<int:biz_id>", methods=["GET", "POST"])
 def business_detail(biz_id):
