@@ -1,0 +1,44 @@
+[
+  {
+    "business_id": "7",
+    "rating": 5,
+    "comment": "The shoes are so cool I love them so much",
+    "user": "Aarush"
+  },
+  {
+    "business_id": "7",
+    "rating": 4,
+    "comment": "I love the shoes but they ripped after 1 year",
+    "user": "Aayush"
+  },
+  {
+    "business_id": "14",
+    "rating": 5,
+    "comment": "awesome,fun",
+    "user": "mg"
+  },
+  {
+    "business_id": "7",
+    "rating": 5,
+    "comment": "These shoes were comfortable and very tuff i loved them fr and my bf matches with me",
+    "user": "Eleni"
+  },
+  {
+    "business_id": "7",
+    "rating": 5,
+    "comment": "Btw my bf is really cute hes mine",
+    "user": "Eleni"
+  },
+  {
+    "business_id": "11",
+    "rating": 4,
+    "comment": "its grate",
+    "user": "Aarush"
+  },
+  {
+    "business_id": "3",
+    "rating": 3,
+    "comment": "teararrar",
+    "user": "Aayush"
+  }
+]

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grate My Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="splash-screen">
+
+    <!-- Splash Screen Logo -->
+    <img class="logo-img" src="{{ url_for('static', filename='images/logo.png') }}" alt="Grate My Service Logo">
+
+    <script>
+    // If logged in → go to Discover
+    // If not logged in → go to Login
+    const nextUrl = "{{ url_for('home') if current_user else url_for('login') }}";
+
+    setTimeout(() => {
+        window.location.href = nextUrl;
+    }, 4000);
+    </script>
+
+
+</body>
+</html>

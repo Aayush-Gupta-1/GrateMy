@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Grate My Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Navigation -->
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+    <div class="nav-right">
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+
+        {% if current_user %}
+            <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a>
+            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a>
+        {% endif %}
+    </div>
+</header>
+
+<main class="page-container">
+    <div class="faq-container">
+        <h1>🧀 Frequently Asked Questions</h1>
+        <p class="faq-subtitle">Got questions? We've got answers about Grate My Service!</p>
+
+        <div class="faq-section">
+            <div class="faq-item">
+                <h3 class="faq-question">What is Grate My Service?</h3>
+                <p class="faq-answer">Grate My Service is a student-focused platform where you can discover, review, and rate local businesses using our unique cheese rating system (1-5 🧀).</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How does the cheese rating system work?</h3>
+                <p class="faq-answer">Businesses are rated from 1 to 5 cheese wheels (🧀). 1 cheese = not grate, 5 cheese = truly grate! The average of all ratings determines the business's Cheese Score.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Do I need to create an account to browse?</h3>
+                <p class="faq-answer">Yes and you'll need to sign up to leave reviews and save favorites.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What is the Certified Grateness badge?</h3>
+                <p class="faq-answer">Businesses with 4.5+ stars and at least 5 reviews earn our Certified Grateness badge, showing they consistently deliver great service.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I leave a review?</h3>
+                <p class="faq-answer">Click on any business card, then scroll to the "Grate this service" section. Select your cheese rating, write your experience, and submit!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I edit or delete my reviews?</h3>
+                <p class="faq-answer">Currently, reviews are permanent once submitted. Make sure you're happy with your rating before submitting!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I use coupon codes?</h3>
+                <p class="faq-answer">Find coupon codes on our home page. Simply show the code to the business when you visit or enter it at checkout if shopping online.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do favorites work?</h3>
+                <p class="faq-answer">Click the ➕ button on any business card to add it to your favorites (it becomes a 🐭). Use the "Favorites only" filter to see just your saved places.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What's with the mouse emoji?</h3>
+                <p class="faq-answer">Mice love cheese, just like you love your favorite businesses! The 🐭 shows places you've saved.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I review a business multiple times?</h3>
+                <p class="faq-answer">Yes! You can leave multiple reviews if you visit a business again and have a new experience to share.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How are businesses added to the platform?</h3>
+                <p class="faq-answer">We curate local student-friendly businesses. If you'd like to suggest a business, contact us!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Are the deals and coupons real?</h3>
+                <p class="faq-answer">Yes! All coupons on our home page are valid offers from participating businesses. Check expiration dates and terms.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I sort businesses by rating?</h3>
+                <p class="faq-answer">Absolutely! Use the "Sort by" dropdown and select "Cheese Rating" to see the highest-rated businesses first.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What categories are available?</h3>
+                <p class="faq-answer">We have Food, Clothing, Services, and Entertainment categories. Filter by category to find exactly what you need.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is my review anonymous?</h3>
+                <p class="faq-answer">You can leave your name or stay "Anonymous" when submitting a review. It's your choice!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Why do I need to complete the maze during signup?</h3>
+                <p class="faq-answer">The cheese maze is our fun CAPTCHA system to verify you're not a bot. Guide the mouse to the cheese!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can businesses respond to reviews?</h3>
+                <p class="faq-answer">Not currently, but we're considering adding this feature in the future!</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How often are new deals added?</h3>
+                <p class="faq-answer">We update deals regularly! Check the home page frequently for new coupon codes and discounts.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is Grate My Service free to use?</h3>
+                <p class="faq-answer">Yes! Grate My Service is completely free for students. Browse, review, and save favorites at no cost.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">How do I contact support?</h3>
+                <p class="faq-answer">Email us at hello@gratemyservice.com or find our contact info in the footer. We typically respond within 24 hours!</p>
+            </div>
+        </div>
+
+        <div class="faq-cta">
+            <h2>Still have questions?</h2>
+            <p>Contact us at <a href="mailto:hello@gratemyservice.com">hello@gratemyservice.com</a></p>
+            <a href="{{ url_for('home') }}" class="primary-button">Back to Home</a>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

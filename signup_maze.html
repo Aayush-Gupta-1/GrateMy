@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>One more step - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+</header>
+
+<main class="page-container auth-layout">
+    <section class="auth-card">
+        <div class="auth-header">
+            <h1>Prove you’re not a bot</h1>
+            <p class="auth-subtitle">
+                Move your mouse from <strong>START</strong> to the cheese without touching the walls.
+            </p>
+        </div>
+
+        {% if error %}
+            <p class="auth-error">{{ error }}</p>
+        {% endif %}
+
+        <form method="post" class="card captcha-area">
+            <div id="maze-wrapper">
+                <!-- Canvas the JS draws the maze onto -->
+                <canvas id="maze-canvas" width="420" height="420"></canvas>
+
+                <!-- Mouse that follows the cursor -->
+                <div id="maze-player">🐭</div>
+
+                <!-- Labels used for start/goal hitboxes -->
+                <div id="maze-start-label">START</div>
+                <div id="maze-cheese-label">🧀</div>
+            </div>
+
+            <p id="maze-status">Not verified yet</p>
+            <input type="hidden" id="captcha_ok" name="captcha_ok" value="0">
+
+            <div class="auth-actions">
+                <button type="submit" class="primary-button auth-button">
+                    Finish sign up
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="{{ url_for('static', filename='js/signup_maze.js') }}"></script>
+</body>
+</html>
