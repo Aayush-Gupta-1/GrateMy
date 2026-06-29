@@ -38,5 +38,15 @@
   {
     "username": "him",
     "password_hash": "scrypt:32768:8:1$JkKClIOZYfvGKYmU$505af7c51e495f8400d24db6addb38de49d87b46f365732c2fef3523b73e898e2e919542e8fa24e080bc88856cdc0898fdd1e5bbe58d02c8e0103f1637d3a188"
+  },
+  {
+    "username": "teshtacc",
+    "password_hash": "scrypt:32768:8:1$1ydzEaonZWUNINTD$ce4b2ff4c38aa22d3a9a1439e88c518a419ab499f60c5626960b6d722cf1116f3de7d4feab525f1cb75699fd16ded4b813e356354aee92de8df7518ece946784",
+    "favorites": []
+  },
+  {
+    "username": "yeyeyey",
+    "password_hash": "scrypt:32768:8:1$yIqd5amEj877Qu7T$21d422eeba62752e165ff9fa2ebc81f744692b368eb9326abc864588e39a26dd9bcaba423b8097e2daff4c06cffbeea5b5f75170f2056ec8ed4dfa3aa4d68a62",
+    "favorites": []
   }
 ]
