@@ -47,6 +47,21 @@ def save_json(path, data):
         json.dump(data, f, indent=2)  # write the data nicely formatted
 
 
+def calc_rating(reviews, biz_id):
+    """Calculate live avg rating + count for a business from its reviews."""
+    biz_reviews = [r for r in reviews if r["business_id"] == str(biz_id)]  # reviews for this business
+    if not biz_reviews:  # no reviews yet
+        return 0, 0
+    avg = round(sum(r["rating"] for r in biz_reviews) / len(biz_reviews), 2)  # average rating
+    return avg, len(biz_reviews)  # rating + how many reviews
+
+
+MOUSE_COLORS = [
+    "#c9a87c", "#8b5e3c", "#f2c94c", "#eb5757",
+    "#2f80ed", "#27ae60", "#9b51e0", "#bdbdbd",
+]  # allowed mouse colors for profile customization
+
+
 # Make current_user available in all templates
 @app.context_processor
 def inject_user():
@@ -180,6 +195,10 @@ def index():
 def discover():
     """Show list of businesses with sorting and filtering."""
     businesses = load_json(BUSINESSES_FILE, [])  # get all the businesses
+    reviews = load_json(REVIEWS_FILE, [])  # get all reviews
+
+    for b in businesses:  # attach live rating data to each business
+        b["avg_rating"], b["ratings_count"] = calc_rating(reviews, b["id"])
 
     sort_by = request.args.get("sort", "name")  # how should we sort them
     category_filter = request.args.get("category", "all")  # only show one category, or all
@@ -220,6 +239,7 @@ def discover():
 def download_csv():
     """Build a CSV report of all businesses and send it as a file download."""
     businesses = load_json(BUSINESSES_FILE, [])  # get all the businesses
+    reviews = load_json(REVIEWS_FILE, [])  # get all reviews
 
     output = io.StringIO()  # a text buffer to build the CSV in memory
     writer = csv.writer(output)
@@ -237,13 +257,14 @@ def download_csv():
 
     # one row per business
     for b in businesses:
+        avg_rating, ratings_count = calc_rating(reviews, b["id"])  # live rating for this row
         writer.writerow([
             b.get("id", ""),
             b.get("name", ""),
             b.get("category", ""),
             b.get("description", ""),
-            b.get("avg_rating", ""),
-            b.get("ratings_count", ""),
+            avg_rating,
+            ratings_count,
             "Yes" if b.get("favorite") else "No",
         ])
 
@@ -295,25 +316,12 @@ def business_detail(biz_id):
                 }
             )
             save_json(REVIEWS_FILE, reviews)  # save the new review to the file
-
-            # Recalculate avg rating
-            biz_reviews = [r for r in reviews if r["business_id"] == str(biz_id)]  # all reviews for this business
-            if biz_reviews:
-                avg = sum(r["rating"] for r in biz_reviews) / len(biz_reviews)  # average all the star ratings
-                biz["avg_rating"] = round(avg, 2)  # save the new average
-                biz["ratings_count"] = len(biz_reviews)  # save how many reviews there are now
-
-            for i, b in enumerate(businesses):  # find this business in the full list
-                if int(b["id"]) == int(biz_id):
-                    businesses[i] = biz  # update it with the new rating info
-                    break
-            save_json(BUSINESSES_FILE, businesses)  # save the updated business list
+            # rating + count are calculated live from reviews.json, nothing else to save
 
         return redirect(url_for("business_detail", biz_id=biz_id))
 
     biz_reviews = [r for r in reviews if r["business_id"] == str(biz_id)]  # all reviews for this business
-    avg_rating = biz.get("avg_rating", 0)  # the business's average rating
-    ratings_count = biz.get("ratings_count", len(biz_reviews))  # how many ratings it has
+    avg_rating, ratings_count = calc_rating(reviews, biz_id)  # live rating + count
 
     return render_template(
         "business.html",
@@ -332,6 +340,10 @@ def profile():
     # Load reviews + businesses so we can show business names on the profile
     reviews = load_json(REVIEWS_FILE, [])
     businesses = load_json(BUSINESSES_FILE, [])
+    users = load_json(USERS_FILE, [])  # get all users so we can find this one
+
+    user_record = next((u for u in users if u["username"] == username), None)  # this user's data
+    mouse_color = user_record.get("mouse_color", MOUSE_COLORS[0]) if user_record else MOUSE_COLORS[0]  # saved color
 
     biz_map = {str(b["id"]): b for b in businesses}  # quick lookup from business id to business info
 
@@ -367,8 +379,31 @@ def profile():
         user_reviews=user_reviews,
         total_reviews=total_reviews,
         avg_cheese=avg_cheese,
-        top_category=top_category
+        top_category=top_category,
+        mouse_color=mouse_color,
+        mouse_colors=MOUSE_COLORS,
+        has_sunglasses=total_reviews >= 3,  # unlocked at 3 reviews
+        has_cheese_hat=total_reviews >= 5,  # unlocked at 5 reviews
     )
+
+
+@app.route("/profile/mouse-color", methods=["POST"])
+def update_mouse_color():
+    """Save the logged-in user's chosen mouse color."""
+    username = session.get("user")  # who is logged in
+    if not username:  # must be logged in
+        return redirect(url_for("login"))
+
+    color = request.form.get("color", "")  # the color they picked
+    if color in MOUSE_COLORS:  # only allow colors from our palette
+        users = load_json(USERS_FILE, [])  # get all users
+        for u in users:
+            if u["username"] == username:  # find this user
+                u["mouse_color"] = color  # save their pick
+                break
+        save_json(USERS_FILE, users)  # persist to file
+
+    return redirect(url_for("profile"))
 
 
 @app.route("/toggle_favorite/<int:biz_id>", methods=["POST"])

@@ -18,6 +18,7 @@
   <div class="nav-right">
     <a href="{{ url_for('home') }}" class="nav-link">Home</a>
     <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+    <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a>
 
     {% if current_user %}
       <a href="{{ url_for('profile') }}" class="nav-link active">Hi, {{ current_user }}</a>
@@ -35,14 +36,15 @@
   <section class="detail-card" style="margin-top: 28px;">
     <div style="display:flex; align-items:center; justify-content:space-between; gap: 18px; flex-wrap:wrap;">
       <div style="display:flex; align-items:center; gap: 14px;">
-        <!-- Avatar circle -->
-        <div style="
-          width:64px; height:64px; border-radius:50%;
-          background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(255,255,255,0.10);
-          display:flex; align-items:center; justify-content:center;
-          font-size: 28px;">
-          🐭
+        <!-- Mouse avatar, filled with the user's saved color -->
+        <div class="mouse-avatar" style="background-color: {{ mouse_color }};">
+          {% if has_cheese_hat %}
+            <img src="{{ url_for('static', filename='images/sunglasscheese-mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img">
+          {% elif has_sunglasses %}
+            <img src="{{ url_for('static', filename='images/sunglasses-mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img">
+          {% else %}
+            <img src="{{ url_for('static', filename='images/mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img">
+          {% endif %}
         </div>
 
         <div>
@@ -89,6 +91,30 @@
       </div>
 
     </div>
+  </section>
+
+  <!-- Mouse Customization -->
+  <section class="detail-card" style="margin-top: 18px;">
+    <h2 style="margin-top:0;">Customize Your Mouse</h2>
+    <p style="opacity:0.8; margin-top:0;">Pick a color for your mouse. It's saved to your account.</p>
+
+    <form method="post" action="{{ url_for('update_mouse_color') }}" class="mouse-color-form">
+      {% for color in mouse_colors %}
+        <button
+          type="submit"
+          name="color"
+          value="{{ color }}"
+          class="mouse-swatch {% if color == mouse_color %}mouse-swatch--active{% endif %}"
+          style="background-color: {{ color }};"
+          title="{{ color }}"
+        ></button>
+      {% endfor %}
+    </form>
+
+    <p style="opacity:0.8; margin-top: 16px; margin-bottom:0;">
+      🕶️ Sunglasses unlock at 3 reviews {% if has_sunglasses %}— unlocked!{% else %}({{ total_reviews }}/3){% endif %}<br>
+      🧀 Cheese hat unlocks at 5 reviews {% if has_cheese_hat %}— unlocked!{% else %}({{ total_reviews }}/5){% endif %}
+    </p>
   </section>
 
   <!-- Reviews -->

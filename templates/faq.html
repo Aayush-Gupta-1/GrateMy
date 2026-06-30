@@ -18,6 +18,7 @@
     <div class="nav-right">
         <a href="{{ url_for('home') }}" class="nav-link">Home</a>
         <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+        <a href="{{ url_for('faq') }}" class="nav-link active">FAQ</a>
 
         {% if current_user %}
             <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a>
@@ -95,7 +96,7 @@
             </p>
 
             <a
-                href="mailto:hello@gratemyservice.com?subject=Question about Grate My Service"
+                href="mailto:gratemyservice@gmail.com?subject=Question about Grate My Service"
                 class="primary-button"
             >
                 Email Support

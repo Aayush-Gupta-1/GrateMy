@@ -886,6 +886,22 @@ body.splash-screen {
     font-size: 2.5rem;
     margin: 0 0 1rem;
     color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.hero-mouse-icon {
+    width: 1.8em;
+    height: 1.8em;
+    object-fit: contain;
+    background-color: #facc15;
+    border-radius: 50%;
+    padding: 0.2em;
+    box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .hero-subtitle {
@@ -1462,4 +1478,53 @@ body.splash-screen {
 
 .faq-cta a[href^="mailto"]:hover {
     text-decoration: underline;
+}
+
+/* Mouse avatar on the profile page */
+.mouse-avatar {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mouse-avatar-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 7px;
+    box-sizing: border-box;
+}
+
+/* Color picker for mouse customization */
+.mouse-color-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.mouse-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    padding: 0;
+}
+
+.mouse-swatch:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.mouse-swatch--active {
+    border-color: #facc15;
+    box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.4);
 }

@@ -1,44 +1,404 @@
 [
   {
-    "business_id": "7",
+    "business_id": "1",
     "rating": 5,
-    "comment": "Super comfortable and stylish. I’ve been wearing them almost every day and they still look brand new. Definitely worth the price.",
+    "comment": "The grilled cheese here is unreal, perfectly crispy every time. Tomato soup pairs so well with it.",
     "user": "Aarush"
   },
   {
-    "business_id": "7",
+    "business_id": "1",
+    "rating": 5,
+    "comment": "My go-to spot for late night study snacks. Staff remembers my order now.",
+    "user": "Eleni"
+  },
+  {
+    "business_id": "1",
     "rating": 4,
-    "comment": "Great design and very comfortable for long walks. They did start to show some wear after about a year, but overall still a solid purchase.",
+    "comment": "Cozy vibe and the soup is great, but it gets crowded around finals week.",
+    "user": "mg"
+  },
+  {
+    "business_id": "1",
+    "rating": 5,
+    "comment": "Best grilled cheese on campus, hands down. Worth the wait.",
+    "user": "Ishant"
+  },
+  {
+    "business_id": "1",
+    "rating": 5,
+    "comment": "Came here at midnight before an exam and it saved me. Five stars.",
+    "user": "Cheese"
+  },
+  {
+    "business_id": "2",
+    "rating": 5,
+    "comment": "Slices are huge and the student discount after 8pm is a lifesaver.",
     "user": "Aayush"
   },
   {
-    "business_id": "14",
+    "business_id": "2",
+    "rating": 4,
+    "comment": "Good pizza but the line gets long on weekends.",
+    "user": "liamj"
+  },
+  {
+    "business_id": "2",
+    "rating": 4,
+    "comment": "Cheesy, greasy, exactly what I want at midnight.",
+    "user": "teshtacc"
+  },
+  {
+    "business_id": "3",
+    "rating": 3,
+    "comment": "Boba was good but the buns were a little dry when I went.",
+    "user": "him"
+  },
+  {
+    "business_id": "3",
+    "rating": 4,
+    "comment": "Chill atmosphere, great playlist, solid steamed buns.",
+    "user": "yeyeyey"
+  },
+  {
+    "business_id": "4",
+    "rating": 4,
+    "comment": "Build your own salad option is great, lots of fresh toppings.",
+    "user": "Aarush"
+  },
+  {
+    "business_id": "4",
+    "rating": 4,
+    "comment": "Smoothies are a nice touch, salads are filling for the price.",
+    "user": "mg"
+  },
+  {
+    "business_id": "4",
     "rating": 5,
-    "comment": "Amazing experience overall. Friendly staff, quick service, and everything was exactly as expected. Would absolutely recommend.",
+    "comment": "Finally a healthy option near campus that doesn't taste like cardboard.",
+    "user": "Eleni"
+  },
+  {
+    "business_id": "4",
+    "rating": 3,
+    "comment": "Decent but they ran out of a couple toppings when I visited.",
+    "user": "Ishant"
+  },
+  {
+    "business_id": "5",
+    "rating": 5,
+    "comment": "Local artist hoodies are so unique, got so many compliments.",
+    "user": "Cheese"
+  },
+  {
+    "business_id": "5",
+    "rating": 4,
+    "comment": "Quality tees, sizing runs a little large though.",
+    "user": "liamj"
+  },
+  {
+    "business_id": "5",
+    "rating": 5,
+    "comment": "My favorite streetwear shop near campus, always something new.",
+    "user": "teshtacc"
+  },
+  {
+    "business_id": "5",
+    "rating": 5,
+    "comment": "Great selection, prices are fair for the quality.",
+    "user": "him"
+  },
+  {
+    "business_id": "5",
+    "rating": 4,
+    "comment": "Good hoodies but I wish they restocked faster.",
+    "user": "yeyeyey"
+  },
+  {
+    "business_id": "6",
+    "rating": 5,
+    "comment": "Found a vintage jersey here for half the price of resale sites.",
+    "user": "Aayush"
+  },
+  {
+    "business_id": "6",
+    "rating": 4,
+    "comment": "Good thrift finds but you have to dig a little.",
+    "user": "Aarush"
+  },
+  {
+    "business_id": "6",
+    "rating": 4,
+    "comment": "Cool jackets, staff is friendly and helps you find stuff.",
     "user": "mg"
   },
   {
     "business_id": "7",
     "rating": 5,
-    "comment": "The quality is top tier and they fit perfectly. I’ve gotten so many compliments on them already.",
+    "comment": "Custom laces are such a fun touch, my sneakers look brand new.",
     "user": "Eleni"
   },
   {
     "business_id": "7",
     "rating": 5,
-    "comment": "Really impressed with the comfort and durability. They feel premium and hold up well even with daily use.",
+    "comment": "Limited drops are always fire, just gotta check often.",
+    "user": "Ishant"
+  },
+  {
+    "business_id": "7",
+    "rating": 4,
+    "comment": "Shoe cleaning service brought my old kicks back to life.",
+    "user": "Cheese"
+  },
+  {
+    "business_id": "7",
+    "rating": 5,
+    "comment": "Best sneaker shop around campus, no question.",
+    "user": "liamj"
+  },
+  {
+    "business_id": "8",
+    "rating": 5,
+    "comment": "These sweats got me through finals week, so comfy.",
+    "user": "teshtacc"
+  },
+  {
+    "business_id": "8",
+    "rating": 4,
+    "comment": "Beanies are great quality, exactly what I needed for winter.",
+    "user": "him"
+  },
+  {
+    "business_id": "9",
+    "rating": 5,
+    "comment": "Fixed my cracked screen in under an hour before my final.",
+    "user": "yeyeyey"
+  },
+  {
+    "business_id": "9",
+    "rating": 4,
+    "comment": "Good repair work, a bit pricier than I expected.",
+    "user": "Aayush"
+  },
+  {
+    "business_id": "9",
+    "rating": 4,
+    "comment": "Saved my laptop charger port, works perfectly now.",
+    "user": "Aarush"
+  },
+  {
+    "business_id": "9",
+    "rating": 4,
+    "comment": "Quick service, would come back if anything else breaks.",
+    "user": "mg"
+  },
+  {
+    "business_id": "10",
+    "rating": 4,
+    "comment": "Drop off laundry saved me so much time during midterms.",
     "user": "Eleni"
   },
   {
     "business_id": "11",
     "rating": 4,
-    "comment": "Good overall experience. Clean environment, friendly service, and everything was handled smoothly.",
+    "comment": "Tutor helped me bring my calc grade up a full letter.",
+    "user": "Ishant"
+  },
+  {
+    "business_id": "11",
+    "rating": 4,
+    "comment": "Flexible evening slots are perfect for my schedule.",
+    "user": "Cheese"
+  },
+  {
+    "business_id": "11",
+    "rating": 3,
+    "comment": "Good for SAT prep, though scheduling was a little slow to confirm.",
+    "user": "liamj"
+  },
+  {
+    "business_id": "12",
+    "rating": 4,
+    "comment": "Got quick headshots done for my LinkedIn, came out great.",
+    "user": "teshtacc"
+  },
+  {
+    "business_id": "12",
+    "rating": 4,
+    "comment": "Used them for club photos, very professional and fast.",
+    "user": "him"
+  },
+  {
+    "business_id": "13",
+    "rating": 5,
+    "comment": "Rhythm games here are so much fun, couches are comfy too.",
+    "user": "yeyeyey"
+  },
+  {
+    "business_id": "13",
+    "rating": 5,
+    "comment": "Perfect spot for a group hangout, retro games are a nice touch.",
+    "user": "Aayush"
+  },
+  {
+    "business_id": "13",
+    "rating": 4,
+    "comment": "Gets a little loud on weekends but still a blast.",
     "user": "Aarush"
   },
   {
-    "business_id": "3",
-    "rating": 3,
-    "comment": "It was decent but not amazing. The service was okay, and there’s definitely room for improvement in quality and consistency.",
+    "business_id": "13",
+    "rating": 5,
+    "comment": "My favorite place to unwind after exams.",
+    "user": "mg"
+  },
+  {
+    "business_id": "13",
+    "rating": 5,
+    "comment": "Great variety of games, never gets boring.",
+    "user": "Eleni"
+  },
+  {
+    "business_id": "13",
+    "rating": 4,
+    "comment": "Fun spot, wish they had more claw machines.",
+    "user": "Ishant"
+  },
+  {
+    "business_id": "14",
+    "rating": 5,
+    "comment": "Glow in the dark course with ridiculous obstacles, so much fun.",
+    "user": "Cheese"
+  },
+  {
+    "business_id": "15",
+    "rating": 5,
+    "comment": "Anime night was such a fun surprise, great crowd energy.",
+    "user": "liamj"
+  },
+  {
+    "business_id": "15",
+    "rating": 4,
+    "comment": "Throwback movie picks are always solid, comfy seats too.",
+    "user": "teshtacc"
+  },
+  {
+    "business_id": "15",
+    "rating": 5,
+    "comment": "Small theater but great atmosphere for indie premieres.",
+    "user": "him"
+  },
+  {
+    "business_id": "15",
+    "rating": 4,
+    "comment": "Good selection, tickets are a bit pricier on weekends.",
+    "user": "yeyeyey"
+  },
+  {
+    "business_id": "16",
+    "rating": 4,
+    "comment": "Stand-up night here was hilarious, great local talent.",
     "user": "Aayush"
+  },
+  {
+    "business_id": "16",
+    "rating": 4,
+    "comment": "Cozy coffee shop vibe, poetry nights are underrated.",
+    "user": "Aarush"
+  },
+  {
+    "business_id": "16",
+    "rating": 5,
+    "comment": "Music performances are always solid, good place to discover new artists.",
+    "user": "mg"
+  },
+  {
+    "business_id": "7",
+    "rating": 5,
+    "comment": "Th8s was amazing",
+    "user": "bought"
+  },
+  {
+    "business_id": "3",
+    "rating": 5,
+    "comment": "The food was really good, i loved the boba",
+    "user": "bought"
+  },
+  {
+    "business_id": "7",
+    "rating": 5,
+    "comment": "The shoes were so nice i loved them",
+    "user": "bought"
+  },
+  {
+    "business_id": "13",
+    "rating": 5,
+    "comment": "This was a very fun experience i loved the arcade lounge",
+    "user": "bought"
+  },
+  {
+    "business_id": "15",
+    "rating": 5,
+    "comment": "This theater was amazing i loved all the throwbacks it was so fun!",
+    "user": "bought"
+  },
+  {
+    "business_id": "7",
+    "rating": 4,
+    "comment": "asda",
+    "user": "nah"
+  },
+  {
+    "business_id": "3",
+    "rating": 5,
+    "comment": "asfsdafdsf",
+    "user": "nah"
+  },
+  {
+    "business_id": "1",
+    "rating": 5,
+    "comment": "adfaasd",
+    "user": "nah"
+  },
+  {
+    "business_id": "11",
+    "rating": 5,
+    "comment": "asdas",
+    "user": "nah"
+  },
+  {
+    "business_id": "13",
+    "rating": 5,
+    "comment": "sadasdasd",
+    "user": "nah"
+  },
+  {
+    "business_id": "3",
+    "rating": 5,
+    "comment": "Amazing food and loved the music",
+    "user": "hahah"
+  },
+  {
+    "business_id": "5",
+    "rating": 5,
+    "comment": "Loved the clothes it was an amazing selection",
+    "user": "hahah"
+  },
+  {
+    "business_id": "13",
+    "rating": 4,
+    "comment": "It was very fun and the staff was very helpful",
+    "user": "hahah"
+  },
+  {
+    "business_id": "7",
+    "rating": 5,
+    "comment": "Amazing sneakers! the quality is very good and they have an amazing selection",
+    "user": "hahah"
+  },
+  {
+    "business_id": "4",
+    "rating": 5,
+    "comment": "Amazing food",
+    "user": "hahah"
   }
 ]

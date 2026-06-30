@@ -48,5 +48,29 @@
     "username": "yeyeyey",
     "password_hash": "scrypt:32768:8:1$yIqd5amEj877Qu7T$21d422eeba62752e165ff9fa2ebc81f744692b368eb9326abc864588e39a26dd9bcaba423b8097e2daff4c06cffbeea5b5f75170f2056ec8ed4dfa3aa4d68a62",
     "favorites": []
+  },
+  {
+    "username": "Test",
+    "password_hash": "scrypt:32768:8:1$NMugFhZNUXOM32r1$fc761e121342ed9a4ba200bff0f53c56942847c16d6cd3c2b60daec2c368bc7f7652cdc7a6720023098d658fc0d59a0ab5d2d56d43cabfb9b517051ee9f75d1b",
+    "favorites": [],
+    "mouse_color": "#eb5757"
+  },
+  {
+    "username": "bought",
+    "password_hash": "scrypt:32768:8:1$9821uwE2O292GomQ$1a71713d647494fd6f339532443817368c8b2af864fa29e2ba71ed888510494694a2349acaaae4731711fd00001c8e17b45a4ddf30b49a3437765c31de3bf047",
+    "favorites": [],
+    "mouse_color": "#27ae60"
+  },
+  {
+    "username": "nah",
+    "password_hash": "scrypt:32768:8:1$XUOcT2AX7hU9PEvL$35ffbb0f5d5edbcf8b19034e2bdacf70232c2ade44b0dd33e51872f96e92cf8c9163e7cb54bd1e19ff6ed6afd2b38afe0418c91b8202ecd4bee82f8c12189c24",
+    "favorites": [],
+    "mouse_color": "#2f80ed"
+  },
+  {
+    "username": "hahah",
+    "password_hash": "scrypt:32768:8:1$pCM8RXqTtoMN5DPE$d00283effe80734eb91187be25fdbc9527288dc7c9c678385d73ee59a06b8d9bc55433bc90a792a951abe484be3c751c73be41fa00c37469be8c84ae21c17a53",
+    "favorites": [],
+    "mouse_color": "#f2c94c"
   }
 ]

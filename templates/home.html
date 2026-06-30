@@ -17,6 +17,7 @@
     <div class="nav-right">
         <a href="{{ url_for('home') }}" class="nav-link active">Home</a>
         <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+        <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a>
 
         {% if current_user %}
             <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a>
@@ -31,7 +32,10 @@
 <!-- Hero Banner -->
 <section class="hero-banner">
     <div class="hero-content">
-        <h1>🐭 Welcome to Grate My Service</h1>
+        <h1>
+            <img src="{{ url_for('static', filename='images/mouse.png') }}" alt="" class="hero-mouse-icon">
+            Welcome to Grate My Service
+        </h1>
         <p class="hero-subtitle">Discover the best local services with exclusive deals and honest reviews</p>
         <a href="{{ url_for('discover') }}" class="primary-button hero-button">
             Explore Services →
@@ -82,9 +86,8 @@
 
             <div class="footer-col">
                 <h4>Contact Us</h4>
-                <p>📧 hello@gratemyservice.com</p>
-                <p>📞 (555) 123-4567</p>
-                <p>📍 123 Cheese Lane, Dairy City</p>
+                <p>📧 gratemyservice@gmail.com</p>
+                <p>📞 (727)-638-2214</p>
             </div>
         </div>
 

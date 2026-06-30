@@ -16,15 +16,15 @@ window.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const ctx = canvas.getContext("2d");
-    const img = new Image();
+    const ctx = canvas.getContext("2d");  // drawing context
+    const img = new Image();  // maze image
 
     // we know this path works (you tested it)
     img.src = "/static/images/maze.png";
 
-    let imageReady = false;
-    let started = false;
-    let completed = false;
+    let imageReady = false;  // maze image loaded yet
+    let started = false;  // player entered start zone
+    let completed = false;  // player reached goal
 
     img.onload = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -41,9 +41,9 @@ window.addEventListener("DOMContentLoaded", () => {
     };
 
     function resetRun(message) {
-        if (completed) return;
-        started = false;
-        captchaInput.value = "0";
+        if (completed) return;  // already done, ignore
+        started = false;  // back to not started
+        captchaInput.value = "0";  // not verified
         statusEl.textContent = message;
     }
 
@@ -73,8 +73,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     function isBlackPixel(r, g, b) {
-        // white-ish (very bright)
-        return (r + g + b) < 100;
+        return (r + g + b) < 100;  // dark pixel = path
     }
 
     wrapper.addEventListener("mousemove", (e) => {
