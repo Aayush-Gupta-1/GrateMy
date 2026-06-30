@@ -58,8 +58,8 @@ body {
     padding: 0.7rem 1.6rem;
     border-radius: 999px;
     border: none;
-    background: #524d3c;
-    color: #FFFFFF;
+    background: #facc15;
+    color: #111827;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
@@ -506,8 +506,8 @@ body.splash-screen {
     padding: 0.5rem 1rem;
     border-radius: 999px;
     border: none;
-    background: #facc15;
-    color: #111827;
+    background: ##8b7e4a;
+    color: #FFFFFF;
     font-weight: 600;
     cursor: pointer;
 }
