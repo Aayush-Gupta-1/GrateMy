@@ -1,27 +1,27 @@
-<!DOCTYPE html> <!-- doctype declaration -->
-<html lang="en"> <!-- html root -->
-<head> <!-- head section -->
-    <meta charset="UTF-8"> <!-- charset -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- viewport -->
-    <title>Grate My Service</title> <!-- page title -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- stylesheet link -->
-</head> <!-- end head -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grate My Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
 
-<body class="splash-screen"> <!-- splash body -->
+<body class="splash-screen">
 
     <!-- Splash Screen Logo -->
-    <img class="logo-img" src="{{ url_for('static', filename='images/logo.png') }}" alt="Grate My Service Logo"> <!-- logo image -->
+    <img class="logo-img" src="{{ url_for('static', filename='images/logo.png') }}" alt="Grate My Service Logo">
 
-    <script> <!-- inline script start -->
+    <script>
     // If logged in → go to Discover
     // If not logged in → go to Login
-    const nextUrl = "{{ url_for('home') if current_user else url_for('login') }}"; // redirect target
+    const nextUrl = "{{ url_for('home') if current_user else url_for('login') }}";
 
-    setTimeout(() => { // delay redirect
-        window.location.href = nextUrl; // navigate
-    }, 4000); // 4 second delay
-    </script> <!-- inline script end -->
+    setTimeout(() => {
+        window.location.href = nextUrl;
+    }, 4000);
+    </script>
 
 
-</body> <!-- end body -->
-</html> <!-- end html -->
+</body>
+</html>

@@ -1,255 +1,255 @@
-<!DOCTYPE html> <!-- doctype -->
-<html lang="en"> <!-- root html -->
-<head> <!-- head start -->
-    <meta charset="UTF-8"> <!-- charset -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- viewport -->
-    <title>FAQ - Grate My Service</title> <!-- page title -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- styles -->
-</head> <!-- head end -->
-<body> <!-- body start -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Grate My Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
 
 <!-- Navigation -->
-<header class="top-nav"> <!-- top nav header -->
-    <div class="nav-left"> <!-- left nav group -->
-        <span class="nav-logo">🧀</span> <!-- logo emoji -->
-        <span class="nav-title">Grate My Service</span> <!-- site title -->
-    </div> <!-- end nav-left -->
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
 
-    <div class="nav-right"> <!-- right nav group -->
-        <a href="{{ url_for('home') }}" class="nav-link">Home</a> <!-- home link -->
-        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a> <!-- discover link -->
-        <a href="{{ url_for('faq') }}" class="nav-link active">FAQ</a> <!-- faq link active -->
+    <div class="nav-right">
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+        <a href="{{ url_for('faq') }}" class="nav-link active">FAQ</a>
 
-        {% if current_user %} <!-- if logged in -->
-            <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a> <!-- profile link -->
-            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a> <!-- logout link -->
-        {% else %} <!-- not logged in -->
-            <a href="{{ url_for('login') }}" class="nav-link">Login</a> <!-- login link -->
-            <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a> <!-- signup link -->
-        {% endif %} <!-- end if -->
-    </div> <!-- end nav-right -->
-</header> <!-- end header -->
+        {% if current_user %}
+            <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a>
+            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a>
+        {% endif %}
+    </div>
+</header>
 
-<main class="page-container"> <!-- main content -->
-    <div class="faq-container"> <!-- faq wrapper -->
+<main class="page-container">
+    <div class="faq-container">
 
-        <h1>🧀 Ask GrateBot</h1> <!-- page heading -->
-        <p class="faq-subtitle"> <!-- subtitle -->
-            Select a question below to get an instant answer. <!-- subtitle text -->
-        </p> <!-- end subtitle -->
+        <h1>🧀 Ask GrateBot</h1>
+        <p class="faq-subtitle">
+            Select a question below to get an instant answer.
+        </p>
 
-        <div class="faq-section"> <!-- faq section -->
+        <div class="faq-section">
 
-            <label for="faq-select" class="auth-label"> <!-- select label -->
-                Choose a question: <!-- label text -->
-            </label> <!-- end label -->
+            <label for="faq-select" class="auth-label">
+                Choose a question:
+            </label>
 
-            <select id="faq-select" class="auth-input"> <!-- question dropdown -->
-                <option value="">Select a question...</option> <!-- placeholder option -->
-                <option value="0">What is Grate My Service?</option> <!-- q0 -->
-                <option value="1">How does the cheese rating system work?</option> <!-- q1 -->
-                <option value="2">Do I need an account to browse?</option> <!-- q2 -->
-                <option value="3">How do I leave a review?</option> <!-- q3 -->
-                <option value="4">Can I edit my reviews?</option> <!-- q4 -->
-                <option value="5">How do favorites work?</option> <!-- q5 -->
-                <option value="6">What does the mouse emoji mean?</option> <!-- q6 -->
-                <option value="7">How do coupon codes work?</option> <!-- q7 -->
-                <option value="8">Can I review a business more than once?</option> <!-- q8 -->
-                <option value="9">How are businesses added?</option> <!-- q9 -->
-                <option value="10">Are the deals and coupons real?</option> <!-- q10 -->
-                <option value="11">Can I sort businesses by rating?</option> <!-- q11 -->
-                <option value="12">What business categories are available?</option> <!-- q12 -->
-                <option value="13">Are reviews anonymous?</option> <!-- q13 -->
-                <option value="14">Why do I complete the maze during signup?</option> <!-- q14 -->
-                <option value="15">Can businesses respond to reviews?</option> <!-- q15 -->
-                <option value="16">How often are new deals added?</option> <!-- q16 -->
-                <option value="17">Is Grate My Service free?</option> <!-- q17 -->
-                <option value="18">How do I contact support?</option> <!-- q18 -->
-                <option value="19">What is the Certified Grateness badge?</option> <!-- q19 -->
-                <option value="20">Can I filter businesses?</option> <!-- q20 -->
-                <option value="21">How do I view my profile?</option> <!-- q21 -->
-                <option value="22">How do I see my past reviews?</option> <!-- q22 -->
-                <option value="23">How are Cheese Scores calculated?</option> <!-- q23 -->
-                <option value="24">Can I use Grate My Service on my phone?</option> <!-- q24 -->
-                <option value="25">What happens if I forget my password?</option> <!-- q25 -->
-                <option value="26">Why do usernames have requirements?</option> <!-- q26 -->
-                <option value="27">Why do passwords have requirements?</option> <!-- q27 -->
-                <option value="28">What technologies were used to build the app?</option> <!-- q28 -->
-                <option value="29">Who is Grate My Service designed for?</option> <!-- q29 -->
-            </select> <!-- end dropdown -->
+            <select id="faq-select" class="auth-input">
+                <option value="">Select a question...</option>
+                <option value="0">What is Grate My Service?</option>
+                <option value="1">How does the cheese rating system work?</option>
+                <option value="2">Do I need an account to browse?</option>
+                <option value="3">How do I leave a review?</option>
+                <option value="4">Can I edit my reviews?</option>
+                <option value="5">How do favorites work?</option>
+                <option value="6">What does the mouse emoji mean?</option>
+                <option value="7">How do coupon codes work?</option>
+                <option value="8">Can I review a business more than once?</option>
+                <option value="9">How are businesses added?</option>
+                <option value="10">Are the deals and coupons real?</option>
+                <option value="11">Can I sort businesses by rating?</option>
+                <option value="12">What business categories are available?</option>
+                <option value="13">Are reviews anonymous?</option>
+                <option value="14">Why do I complete the maze during signup?</option>
+                <option value="15">Can businesses respond to reviews?</option>
+                <option value="16">How often are new deals added?</option>
+                <option value="17">Is Grate My Service free?</option>
+                <option value="18">How do I contact support?</option>
+                <option value="19">What is the Certified Grateness badge?</option>
+                <option value="20">Can I filter businesses?</option>
+                <option value="21">How do I view my profile?</option>
+                <option value="22">How do I see my past reviews?</option>
+                <option value="23">How are Cheese Scores calculated?</option>
+                <option value="24">Can I use Grate My Service on my phone?</option>
+                <option value="25">What happens if I forget my password?</option>
+                <option value="26">Why do usernames have requirements?</option>
+                <option value="27">Why do passwords have requirements?</option>
+                <option value="28">What technologies were used to build the app?</option>
+                <option value="29">Who is Grate My Service designed for?</option>
+            </select>
 
-            <div <!-- answer box start -->
-                id="answer-box" <!-- box id -->
-                class="faq-item" <!-- box class -->
-                style="margin-top:2rem; display:none;" <!-- hidden by default -->
-            > <!-- end opening tag -->
-                <h3 id="question-title"></h3> <!-- answer title -->
-                <p id="question-answer"></p> <!-- answer text -->
-            </div> <!-- end answer box -->
+            <div
+                id="answer-box"
+                class="faq-item"
+                style="margin-top:2rem; display:none;"
+            >
+                <h3 id="question-title"></h3>
+                <p id="question-answer"></p>
+            </div>
 
-        </div> <!-- end faq section -->
+        </div>
 
-        <div class="faq-cta"> <!-- cta section -->
-            <h2>Didn't find your answer?</h2> <!-- cta heading -->
-            <p> <!-- cta text -->
-                Send us your question and we'll get back to you. <!-- cta message -->
-            </p> <!-- end cta text -->
+        <div class="faq-cta">
+            <h2>Didn't find your answer?</h2>
+            <p>
+                Send us your question and we'll get back to you.
+            </p>
 
-            <a <!-- email link start -->
-                href="mailto:gratemyservice@gmail.com?subject=Question about Grate My Service" <!-- mailto href -->
-                class="primary-button" <!-- button style -->
-            > <!-- end opening tag -->
-                Email Support <!-- link text -->
-            </a> <!-- end email link -->
-        </div> <!-- end cta section -->
+            <a
+                href="mailto:gratemyservice@gmail.com?subject=Question about Grate My Service"
+                class="primary-button"
+            >
+                Email Support
+            </a>
+        </div>
 
 
 
-    </div> <!-- end faq wrapper -->
-</main> <!-- end main -->
+    </div>
+</main>
 
-<script> <!-- script start -->
-const faqs = [ // faq data array
-    { // entry 0
-        question: "What is Grate My Service?", // question text
-        answer: "Grate My Service is a student-focused platform for discovering, reviewing, and rating local businesses using our cheese rating system." // answer text
-    }, // end entry 0
-    { // entry 1
-        question: "How does the cheese rating system work?", // question text
-        answer: "Businesses receive ratings from one to five cheese wheels. The average of all ratings becomes the Cheese Score." // answer text
-    }, // end entry 1
-    { // entry 2
-        question: "Do I need an account to browse?", // question text
-        answer: "No. You can browse businesses without an account, but you must sign up to leave reviews and save favorites." // answer text
-    }, // end entry 2
-    { // entry 3
-        question: "How do I leave a review?", // question text
-        answer: "Open a business page, select your cheese rating, write your review, and submit it." // answer text
-    }, // end entry 3
-    { // entry 4
-        question: "Can I edit my reviews?", // question text
-        answer: "Currently, reviews cannot be edited or deleted after submission." // answer text
-    }, // end entry 4
-    { // entry 5
-        question: "How do favorites work?", // question text
-        answer: "Click the favorite button on a business card to save a business and quickly access it later." // answer text
-    }, // end entry 5
-    { // entry 6
-        question: "What does the mouse emoji mean?", // question text
-        answer: "The mouse represents your favorite businesses because mice love cheese." // answer text
-    }, // end entry 6
-    { // entry 7
-        question: "How do coupon codes work?", // question text
-        answer: "Coupon codes are displayed on the home page and can be used at participating businesses." // answer text
-    }, // end entry 7
-    { // entry 8
-        question: "Can I review a business more than once?", // question text
-        answer: "Yes. You can submit another review if you have another experience to share." // answer text
-    }, // end entry 8
-    { // entry 9
-        question: "How are businesses added?", // question text
-        answer: "Businesses are selected because they are student-friendly and relevant to the community." // answer text
-    }, // end entry 9
-    { // entry 10
-        question: "Are the deals and coupons real?", // question text
-        answer: "Yes. The displayed deals represent real promotions from participating businesses." // answer text
-    }, // end entry 10
-    { // entry 11
-        question: "Can I sort businesses by rating?", // question text
-        answer: "Yes. The Discover page lets you sort businesses by rating and other options." // answer text
-    }, // end entry 11
-    { // entry 12
-        question: "What business categories are available?", // question text
-        answer: "Businesses are organized into Food, Clothing, Services, and Entertainment categories." // answer text
-    }, // end entry 12
-    { // entry 13
-        question: "Are reviews anonymous?", // question text
-        answer: "No. Reviews are connected to the logged-in user to promote trust and accountability." // answer text
-    }, // end entry 13
-    { // entry 14
-        question: "Why do I complete the maze during signup?", // question text
-        answer: "The maze acts as a fun CAPTCHA system that helps prevent automated bot accounts." // answer text
-    }, // end entry 14
-    { // entry 15
-        question: "Can businesses respond to reviews?", // question text
-        answer: "Not currently, but this feature may be added in the future." // answer text
-    }, // end entry 15
-    { // entry 16
-        question: "How often are new deals added?", // question text
-        answer: "Deals and coupons can be updated regularly as businesses provide new promotions." // answer text
-    }, // end entry 16
-    { // entry 17
-        question: "Is Grate My Service free?", // question text
-        answer: "Yes. Grate My Service is completely free for users." // answer text
-    }, // end entry 17
-    { // entry 18
-        question: "How do I contact support?", // question text
-        answer: "You can contact us by using the Email Support button below." // answer text
-    }, // end entry 18
-    { // entry 19
-        question: "What is the Certified Grateness badge?", // question text
-        answer: "Businesses with excellent ratings and enough reviews earn our Certified Grateness badge." // answer text
-    }, // end entry 19
-    { // entry 20
-        question: "Can I filter businesses?", // question text
-        answer: "Yes. The Discover page includes category filters and favorites filters." // answer text
-    }, // end entry 20
-    { // entry 21
-        question: "How do I view my profile?", // question text
-        answer: "Click your username in the navigation bar to open your profile page." // answer text
-    }, // end entry 21
-    { // entry 22
-        question: "How do I see my past reviews?", // question text
-        answer: "Your profile page displays all reviews you have submitted." // answer text
-    }, // end entry 22
-    { // entry 23
-        question: "How are Cheese Scores calculated?", // question text
-        answer: "Cheese Scores are calculated by averaging all ratings submitted for a business." // answer text
-    }, // end entry 23
-    { // entry 24
-        question: "Can I use Grate My Service on my phone?", // question text
-        answer: "Yes. The website is designed to work on both desktop and mobile devices." // answer text
-    }, // end entry 24
-    { // entry 25
-        question: "What happens if I forget my password?", // question text
-        answer: "You can create a new account if you no longer remember your password." // answer text
-    }, // end entry 25
-    { // entry 26
-        question: "Why do usernames have requirements?", // question text
-        answer: "Username requirements help keep account names appropriate and consistent." // answer text
-    }, // end entry 26
-    { // entry 27
-        question: "Why do passwords have requirements?", // question text
-        answer: "Password requirements encourage stronger and more secure accounts." // answer text
-    }, // end entry 27
-    { // entry 28
-        question: "What technologies were used to build the app?", // question text
-        answer: "Grate My Service was built using Python, Flask, HTML, CSS, JavaScript, and JSON." // answer text
-    }, // end entry 28
-    { // entry 29
-        question: "Who is Grate My Service designed for?", // question text
-        answer: "The platform was designed primarily for students looking for trusted local businesses." // answer text
-    } // end entry 29
-]; // end faqs array
+<script>
+const faqs = [
+    {
+        question: "What is Grate My Service?",
+        answer: "Grate My Service is a student-focused platform for discovering, reviewing, and rating local businesses using our cheese rating system."
+    },
+    {
+        question: "How does the cheese rating system work?",
+        answer: "Businesses receive ratings from one to five cheese wheels. The average of all ratings becomes the Cheese Score."
+    },
+    {
+        question: "Do I need an account to browse?",
+        answer: "No. You can browse businesses without an account, but you must sign up to leave reviews and save favorites."
+    },
+    {
+        question: "How do I leave a review?",
+        answer: "Open a business page, select your cheese rating, write your review, and submit it."
+    },
+    {
+        question: "Can I edit my reviews?",
+        answer: "Currently, reviews cannot be edited or deleted after submission."
+    },
+    {
+        question: "How do favorites work?",
+        answer: "Click the favorite button on a business card to save a business and quickly access it later."
+    },
+    {
+        question: "What does the mouse emoji mean?",
+        answer: "The mouse represents your favorite businesses because mice love cheese."
+    },
+    {
+        question: "How do coupon codes work?",
+        answer: "Coupon codes are displayed on the home page and can be used at participating businesses."
+    },
+    {
+        question: "Can I review a business more than once?",
+        answer: "Yes. You can submit another review if you have another experience to share."
+    },
+    {
+        question: "How are businesses added?",
+        answer: "Businesses are selected because they are student-friendly and relevant to the community."
+    },
+    {
+        question: "Are the deals and coupons real?",
+        answer: "Yes. The displayed deals represent real promotions from participating businesses."
+    },
+    {
+        question: "Can I sort businesses by rating?",
+        answer: "Yes. The Discover page lets you sort businesses by rating and other options."
+    },
+    {
+        question: "What business categories are available?",
+        answer: "Businesses are organized into Food, Clothing, Services, and Entertainment categories."
+    },
+    {
+        question: "Are reviews anonymous?",
+        answer: "No. Reviews are connected to the logged-in user to promote trust and accountability."
+    },
+    {
+        question: "Why do I complete the maze during signup?",
+        answer: "The maze acts as a fun CAPTCHA system that helps prevent automated bot accounts."
+    },
+    {
+        question: "Can businesses respond to reviews?",
+        answer: "Not currently, but this feature may be added in the future."
+    },
+    {
+        question: "How often are new deals added?",
+        answer: "Deals and coupons can be updated regularly as businesses provide new promotions."
+    },
+    {
+        question: "Is Grate My Service free?",
+        answer: "Yes. Grate My Service is completely free for users."
+    },
+    {
+        question: "How do I contact support?",
+        answer: "You can contact us by using the Email Support button below."
+    },
+    {
+        question: "What is the Certified Grateness badge?",
+        answer: "Businesses with excellent ratings and enough reviews earn our Certified Grateness badge."
+    },
+    {
+        question: "Can I filter businesses?",
+        answer: "Yes. The Discover page includes category filters and favorites filters."
+    },
+    {
+        question: "How do I view my profile?",
+        answer: "Click your username in the navigation bar to open your profile page."
+    },
+    {
+        question: "How do I see my past reviews?",
+        answer: "Your profile page displays all reviews you have submitted."
+    },
+    {
+        question: "How are Cheese Scores calculated?",
+        answer: "Cheese Scores are calculated by averaging all ratings submitted for a business."
+    },
+    {
+        question: "Can I use Grate My Service on my phone?",
+        answer: "Yes. The website is designed to work on both desktop and mobile devices."
+    },
+    {
+        question: "What happens if I forget my password?",
+        answer: "You can create a new account if you no longer remember your password."
+    },
+    {
+        question: "Why do usernames have requirements?",
+        answer: "Username requirements help keep account names appropriate and consistent."
+    },
+    {
+        question: "Why do passwords have requirements?",
+        answer: "Password requirements encourage stronger and more secure accounts."
+    },
+    {
+        question: "What technologies were used to build the app?",
+        answer: "Grate My Service was built using Python, Flask, HTML, CSS, JavaScript, and JSON."
+    },
+    {
+        question: "Who is Grate My Service designed for?",
+        answer: "The platform was designed primarily for students looking for trusted local businesses."
+    }
+];
 
-const select = document.getElementById("faq-select"); // dropdown ref
-const box = document.getElementById("answer-box"); // answer box ref
-const title = document.getElementById("question-title"); // title ref
-const answer = document.getElementById("question-answer"); // answer ref
+const select = document.getElementById("faq-select");
+const box = document.getElementById("answer-box");
+const title = document.getElementById("question-title");
+const answer = document.getElementById("question-answer");
 
-select.addEventListener("change", function () { // on select change
-    if (this.value === "") { // no selection
-        box.style.display = "none"; // hide box
-        return; // exit early
-    } // end if
+select.addEventListener("change", function () {
+    if (this.value === "") {
+        box.style.display = "none";
+        return;
+    }
 
-    const faq = faqs[this.value]; // lookup faq
+    const faq = faqs[this.value];
 
-    title.textContent = faq.question; // set title
-    answer.textContent = faq.answer; // set answer
-    box.style.display = "block"; // show box
-}); // end listener
-</script> <!-- script end -->
+    title.textContent = faq.question;
+    answer.textContent = faq.answer;
+    box.style.display = "block";
+});
+</script>
 
-</body> <!-- body end -->
-</html> <!-- html end -->
+</body>
+</html>

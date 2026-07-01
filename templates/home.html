@@ -1,101 +1,101 @@
-<!DOCTYPE html> <!-- doctype -->
-<html lang="en"> <!-- html root -->
-<head> <!-- head start -->
-    <meta charset="UTF-8"> <!-- charset -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- viewport -->
-    <title>Grate My Service - Best Deals & Reviews</title> <!-- page title -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- styles -->
-</head> <!-- head end -->
-<body> <!-- body start -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grate My Service - Best Deals & Reviews</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
 
 <!-- Navigation -->
-<header class="top-nav"> <!-- nav header -->
-    <div class="nav-left"> <!-- left nav -->
-        <span class="nav-logo">🧀</span> <!-- logo emoji -->
-        <span class="nav-title">Grate My Service</span> <!-- site title -->
-    </div> <!-- close left nav -->
-    <div class="nav-right"> <!-- right nav -->
-        <a href="{{ url_for('home') }}" class="nav-link active">Home</a> <!-- home link active -->
-        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a> <!-- discover link -->
-        <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a> <!-- faq link -->
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+    <div class="nav-right">
+        <a href="{{ url_for('home') }}" class="nav-link active">Home</a>
+        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+        <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a>
 
-        {% if current_user %} <!-- if logged in -->
-            <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a> <!-- profile link -->
-            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a> <!-- logout link -->
-        {% else %} <!-- not logged in -->
-            <a href="{{ url_for('login') }}" class="nav-link">Login</a> <!-- login link -->
-            <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a> <!-- signup link -->
-        {% endif %} <!-- end login check -->
-    </div> <!-- close right nav -->
-</header> <!-- close header -->
+        {% if current_user %}
+            <a href="{{ url_for('profile') }}" class="nav-link">Hi, {{ current_user }}</a>
+            <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a>
+        {% endif %}
+    </div>
+</header>
 
 <!-- Hero Banner -->
-<section class="hero-banner"> <!-- hero section -->
-    <div class="hero-content"> <!-- hero content -->
-        <h1> <!-- hero heading -->
-            <img src="{{ url_for('static', filename='images/mouse.png') }}" alt="" class="hero-mouse-icon"> <!-- mouse icon -->
-            Welcome to Grate My Service <!-- hero text -->
-        </h1> <!-- close hero heading -->
-        <p class="hero-subtitle">Discover the best local services with exclusive deals and honest reviews</p> <!-- hero subtitle -->
-        <a href="{{ url_for('discover') }}" class="primary-button hero-button"> <!-- explore link -->
-            Explore Services → <!-- link text -->
-        </a> <!-- close explore link -->
-    </div> <!-- close hero content -->
-</section> <!-- close hero section -->
+<section class="hero-banner">
+    <div class="hero-content">
+        <h1>
+            <img src="{{ url_for('static', filename='images/mouse.png') }}" alt="" class="hero-mouse-icon">
+            Welcome to Grate My Service
+        </h1>
+        <p class="hero-subtitle">Discover the best local services with exclusive deals and honest reviews</p>
+        <a href="{{ url_for('discover') }}" class="primary-button hero-button">
+            Explore Services →
+        </a>
+    </div>
+</section>
 
 <!-- Deals & Coupons Section -->
-<section class="deals-section"> <!-- deals section -->
-    <div class="page-container"> <!-- page container -->
-        <h2 class="section-title"> Exclusive Deals & Coupons</h2> <!-- section title -->
+<section class="deals-section">
+    <div class="page-container">
+        <h2 class="section-title"> Exclusive Deals & Coupons</h2>
 
-        <div class="coupons-grid"> <!-- coupons grid -->
-            {% for coupon in coupons %} <!-- loop coupons -->
-                <div class="coupon-card"> <!-- coupon card -->
-                    <div class="coupon-badge">{{ coupon.discount }}</div> <!-- discount badge -->
-                    <img src="{{ url_for('static', filename='images/coupon.png') }}" alt="Coupon" class="coupon-icon"> <!-- coupon icon -->
-                    <h3>{{ coupon.category }}</h3> <!-- coupon category -->
-                    <p>{{ coupon.description }}</p> <!-- coupon description -->
-                    <span class="coupon-code">Code: {{ coupon.code }}</span> <!-- coupon code -->
-                </div> <!-- close coupon card -->
-            {% else %} <!-- no coupons -->
-                <p>No deals available at the moment. Check back soon!</p> <!-- empty state -->
-            {% endfor %} <!-- end loop -->
-        </div> <!-- close coupons grid -->
-    </div> <!-- close page container -->
-</section> <!-- close deals section -->
+        <div class="coupons-grid">
+            {% for coupon in coupons %}
+                <div class="coupon-card">
+                    <div class="coupon-badge">{{ coupon.discount }}</div>
+                    <img src="{{ url_for('static', filename='images/coupon.png') }}" alt="Coupon" class="coupon-icon">
+                    <h3>{{ coupon.category }}</h3>
+                    <p>{{ coupon.description }}</p>
+                    <span class="coupon-code">Code: {{ coupon.code }}</span>
+                </div>
+            {% else %}
+                <p>No deals available at the moment. Check back soon!</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 <!-- Contact/Footer Section -->
-<footer class="contact-footer"> <!-- footer start -->
-    <div class="page-container"> <!-- page container -->
-        <div class="footer-content"> <!-- footer content -->
-            <div class="footer-col"> <!-- footer column -->
-                <h3>🧀 Grate My Service</h3> <!-- footer heading -->
-                <p>Your trusted source for service reviews and exclusive deals</p> <!-- footer text -->
-            </div> <!-- close footer column -->
+<footer class="contact-footer">
+    <div class="page-container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>🧀 Grate My Service</h3>
+                <p>Your trusted source for service reviews and exclusive deals</p>
+            </div>
 
-            <div class="footer-col"> <!-- footer column -->
-                <h4>Quick Links</h4> <!-- links heading -->
-                <ul> <!-- links list -->
-                    <li><a href="{{ url_for('discover') }}">Discover Services</a></li> <!-- discover link -->
-                    <li><a href="{{ url_for('signup') }}">Sign Up</a></li> <!-- signup link -->
-                    <li><a href="{{ url_for('login') }}">Login</a></li> <!-- login link -->
-                    <li><a href="{{ url_for('faq') }}">FAQ</a></li> <!-- faq link -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('discover') }}">Discover Services</a></li>
+                    <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                    <li><a href="{{ url_for('login') }}">Login</a></li>
+                    <li><a href="{{ url_for('faq') }}">FAQ</a></li>
 
-                </ul> <!-- close links list -->
-            </div> <!-- close footer column -->
+                </ul>
+            </div>
 
-            <div class="footer-col"> <!-- footer column -->
-                <h4>Contact Us</h4> <!-- contact heading -->
-                <p>📧 gratemyservice@gmail.com</p> <!-- contact email -->
-                <p>📞 (727)-638-2214</p> <!-- contact phone -->
-            </div> <!-- close footer column -->
-        </div> <!-- close footer content -->
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📧 gratemyservice@gmail.com</p>
+                <p>📞 (727)-638-2214</p>
+            </div>
+        </div>
 
-        <div class="footer-bottom"> <!-- footer bottom -->
-            <p>&copy; 2025 Grate My Service. All rights reserved.</p> <!-- copyright -->
-        </div> <!-- close footer bottom -->
-    </div> <!-- close page container -->
-</footer> <!-- close footer -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Grate My Service. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
 
-</body> <!-- close body -->
-</html> <!-- close html -->
+</body>
+</html>

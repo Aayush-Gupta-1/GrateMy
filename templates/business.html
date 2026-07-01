@@ -1,91 +1,91 @@
-<!doctype html> <!-- doctype -->
-<html lang="en"> <!-- html root -->
-<head> <!-- head start -->
-    <meta charset="utf-8"> <!-- charset -->
-    <title>{{ business.name }} - GRATE MY / SERVICE</title> <!-- page title -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- styles -->
-</head> <!-- head end -->
-<body> <!-- body start -->
-<header class="top-nav"> <!-- nav header -->
-    <div class="nav-left"> <!-- left nav -->
-        <span class="nav-logo">🧀</span> <!-- logo emoji -->
-        <span class="nav-title">Grate My Service</span> <!-- site title -->
-    </div> <!-- close left nav -->
-    <div class="nav-right"> <!-- right nav -->
-        <a href="{{ url_for('home') }}" class="nav-link">Home</a> <!-- home link -->
-        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a> <!-- discover link -->
-        <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a> <!-- faq link -->
-    </div> <!-- close right nav -->
-</header> <!-- close header -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ business.name }} - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+    <div class="nav-right">
+        <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+        <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+        <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a>
+    </div>
+</header>
 
-<main class="page-container"> <!-- main container -->
-    <article class="detail-card"> <!-- detail card start -->
+<main class="page-container"> 
+    <article class="detail-card">
         <!-- Business image in corner -->
-        <div class="detail-business-image" style="background-image: url('{{ url_for('static', filename='images/businesses/' + business.image) }}');"></div> <!-- business image -->
+        <div class="detail-business-image" style="background-image: url('{{ url_for('static', filename='images/businesses/' + business.image) }}');"></div>
 
 
-        <h1>{{ business.name }}</h1> <!-- business name -->
-        <p class="biz-category">{{ business.category }}</p> <!-- category -->
-        <p class="biz-description">{{ business.description }}</p> <!-- description -->
+        <h1>{{ business.name }}</h1>
+        <p class="biz-category">{{ business.category }}</p>
+        <p class="biz-description">{{ business.description }}</p>
 
-        <h2>Cheese Score</h2> <!-- score heading -->
-        <p class="biz-rating"> <!-- rating paragraph -->
-            {% if ratings_count %} <!-- if ratings exist -->
-                {{ avg_rating }} / 5 🧀 ({{ ratings_count }} ratings) <!-- show avg rating -->
-            {% else %} <!-- no ratings -->
-                No cheese grated yet. Be the first! <!-- empty state -->
-            {% endif %} <!-- end ratings check -->
-        </p> <!-- close rating paragraph -->
+        <h2>Cheese Score</h2>
+        <p class="biz-rating">
+            {% if ratings_count %}
+                {{ avg_rating }} / 5 🧀 ({{ ratings_count }} ratings)
+            {% else %}
+                No cheese grated yet. Be the first!
+            {% endif %}
+        </p>
 
-        <section class="rating-section"> <!-- rating section -->
-            <h3>Grate this service</h3> <!-- rating heading -->
-            <form method="post" class="rating-form"> <!-- rating form -->
+        <section class="rating-section">
+            <h3>Grate this service</h3>
+            <form method="post" class="rating-form">
 
-                <label> <!-- rating label -->
-                    Cheese rating: <!-- label text -->
-                    <select name="rating" required> <!-- rating select -->
-                        <option value="">Select...</option> <!-- placeholder option -->
-                        <option value="1">1 🧀 – Not grate</option> <!-- rating 1 -->
-                        <option value="2">2 🧀🧀 - Okay</option> <!-- rating 2 -->
-                        <option value="3">3 🧀🧀🧀 – Mid Grate</option> <!-- rating 3 -->
-                        <option value="4">4 🧀🧀🧀🧀 – Grate</option> <!-- rating 4 -->
-                        <option value="5">5 🧀🧀🧀🧀🧀 – Truly grate</option> <!-- rating 5 -->
-                    </select> <!-- close select -->
-                </label> <!-- close label -->
+                <label>
+                    Cheese rating:
+                    <select name="rating" required>
+                        <option value="">Select...</option>
+                        <option value="1">1 🧀 – Not grate</option>
+                        <option value="2">2 🧀🧀 - Okay</option>
+                        <option value="3">3 🧀🧀🧀 – Mid Grate</option>
+                        <option value="4">4 🧀🧀🧀🧀 – Grate</option>
+                        <option value="5">5 🧀🧀🧀🧀🧀 – Truly grate</option>
+                    </select>
+                </label>
 
-                <label> <!-- comment label -->
-                    Why did you give this amount of cheese? <!-- label text -->
-                    <textarea name="comment" rows="4" <!-- textarea start -->
-                              placeholder="Describe the service experience..."></textarea> <!-- comment textarea -->
-                </label> <!-- close label -->
+                <label>
+                    Why did you give this amount of cheese?
+                    <textarea name="comment" rows="4"
+                              placeholder="Describe the service experience..."></textarea>
+                </label>
 
-                <button class="primary-button" type="submit">Submit Grating</button> <!-- submit button -->
-            </form> <!-- close form -->
-        </section> <!-- close rating section -->
+                <button class="primary-button" type="submit">Submit Grating</button>
+            </form>
+        </section>
 
-        <section class="reviews-section"> <!-- reviews section -->
-            <h3>Reviews</h3> <!-- reviews heading -->
-            {% if reviews %} <!-- if reviews exist -->
-                <ul class="reviews-list"> <!-- reviews list -->
-                    {% for r in reviews %} <!-- loop reviews -->
-                        <li class="review-item"> <!-- review item -->
-                            <div class="review-header"> <!-- review header -->
-                                <strong>{{ r.user }}</strong> <!-- reviewer name -->
-                                <span>{{ r.rating }} 🧀</span> <!-- reviewer rating -->
-                            </div> <!-- close review header -->
-                            <p>{{ r.comment }}</p> <!-- review comment -->
-                        </li> <!-- close review item -->
-                    {% endfor %} <!-- end loop -->
-                </ul> <!-- close reviews list -->
-            {% else %} <!-- no reviews -->
-                <p>No reviews yet.</p> <!-- empty state -->
-            {% endif %} <!-- end reviews check -->
-        </section> <!-- close reviews section -->
+        <section class="reviews-section">
+            <h3>Reviews</h3>
+            {% if reviews %}
+                <ul class="reviews-list">
+                    {% for r in reviews %}
+                        <li class="review-item">
+                            <div class="review-header">
+                                <strong>{{ r.user }}</strong>
+                                <span>{{ r.rating }} 🧀</span>
+                            </div>
+                            <p>{{ r.comment }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No reviews yet.</p>
+            {% endif %}
+        </section>
 
-        <a class="secondary-button" href="{{ url_for('discover') }}"> <!-- back link -->
-            ← Back to Discover <!-- link text -->
-        </a> <!-- close link -->
-    </article> <!-- close detail card -->
-</main> <!-- close main -->
-</body> <!-- close body -->
-</html> <!-- close html -->
+        <a class="secondary-button" href="{{ url_for('discover') }}">
+            ← Back to Discover
+        </a>
+    </article>
+</main>
+</body>
+</html>

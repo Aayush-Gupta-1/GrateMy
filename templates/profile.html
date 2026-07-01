@@ -1,163 +1,163 @@
-<!DOCTYPE html> <!-- doctype -->
-<html lang="en"> <!-- root html -->
-<head> <!-- head start -->
-  <meta charset="UTF-8" /> <!-- charset -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- viewport -->
-  <title>Profile - Grate My Service</title> <!-- page title -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- styles -->
-</head> <!-- head end -->
-<body> <!-- body start -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - Grate My Service</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
 
 <!-- Navigation -->
-<header class="top-nav"> <!-- top nav header -->
-  <div class="nav-left"> <!-- left nav group -->
-    <span class="nav-logo">🧀</span> <!-- logo emoji -->
-    <span class="nav-title">Grate My Service</span> <!-- site title -->
-  </div> <!-- end nav-left -->
+<header class="top-nav">
+  <div class="nav-left">
+    <span class="nav-logo">🧀</span>
+    <span class="nav-title">Grate My Service</span>
+  </div>
 
-  <div class="nav-right"> <!-- right nav group -->
-    <a href="{{ url_for('home') }}" class="nav-link">Home</a> <!-- home link -->
-    <a href="{{ url_for('discover') }}" class="nav-link">Discover</a> <!-- discover link -->
-    <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a> <!-- faq link -->
+  <div class="nav-right">
+    <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+    <a href="{{ url_for('discover') }}" class="nav-link">Discover</a>
+    <a href="{{ url_for('faq') }}" class="nav-link">FAQ</a>
 
-    {% if current_user %} <!-- if logged in -->
-      <a href="{{ url_for('profile') }}" class="nav-link active">Hi, {{ current_user }}</a> <!-- profile link -->
-      <a href="{{ url_for('logout') }}" class="nav-link">Logout</a> <!-- logout link -->
-    {% else %} <!-- not logged in -->
-      <a href="{{ url_for('login') }}" class="nav-link">Login</a> <!-- login link -->
-      <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a> <!-- signup link -->
-    {% endif %} <!-- end if -->
-  </div> <!-- end nav-right -->
-</header> <!-- end header -->
+    {% if current_user %}
+      <a href="{{ url_for('profile') }}" class="nav-link active">Hi, {{ current_user }}</a>
+      <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+      <a href="{{ url_for('signup') }}" class="nav-link">Sign up</a>
+    {% endif %}
+  </div>
+</header>
 
-<main class="page-container"> <!-- main content -->
+<main class="page-container">
 
   <!-- Profile Header Card -->
-  <section class="detail-card" style="margin-top: 28px;"> <!-- profile card -->
-    <div style="display:flex; align-items:center; justify-content:space-between; gap: 18px; flex-wrap:wrap;"> <!-- header row -->
-      <div style="display:flex; align-items:center; gap: 14px;"> <!-- avatar group -->
+  <section class="detail-card" style="margin-top: 28px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap: 18px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap: 14px;">
         <!-- Mouse avatar, filled with the user's saved color -->
-        <div class="mouse-avatar" style="background-color: {{ mouse_color }};"> <!-- avatar bg -->
-          {% if has_cheese_hat %} <!-- has cheese hat -->
-            <img src="{{ url_for('static', filename='images/sunglasscheese-mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img"> <!-- cheese hat img -->
-          {% elif has_sunglasses %} <!-- has sunglasses -->
-            <img src="{{ url_for('static', filename='images/sunglasses-mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img"> <!-- sunglasses img -->
-          {% else %} <!-- default mouse -->
-            <img src="{{ url_for('static', filename='images/mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img"> <!-- plain mouse img -->
-          {% endif %} <!-- end avatar if -->
-        </div> <!-- end avatar -->
+        <div class="mouse-avatar" style="background-color: {{ mouse_color }};">
+          {% if has_cheese_hat %}
+            <img src="{{ url_for('static', filename='images/sunglasscheese-mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img">
+          {% elif has_sunglasses %}
+            <img src="{{ url_for('static', filename='images/sunglasses-mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img">
+          {% else %}
+            <img src="{{ url_for('static', filename='images/mouse.png') }}" alt="Your mouse avatar" class="mouse-avatar-img">
+          {% endif %}
+        </div>
 
-        <div> <!-- name block -->
-          <h1 style="margin:0;">{{ current_user }}</h1> <!-- username heading -->
-          <p class="biz-description" style="margin:6px 0 0;"> <!-- tagline -->
-            Certified cheese critic. Local deal hunter. Professional grater. <!-- tagline text -->
-          </p> <!-- end tagline -->
-        </div> <!-- end name block -->
-      </div> <!-- end avatar group -->
+        <div>
+          <h1 style="margin:0;">{{ current_user }}</h1>
+          <p class="biz-description" style="margin:6px 0 0;">
+            Certified cheese critic. Local deal hunter. Professional grater.
+          </p>
+        </div>
+      </div>
 
-      <a class="secondary-button" href="{{ url_for('discover') }}">Explore Services</a> <!-- explore button -->
-    </div> <!-- end header row -->
+      <a class="secondary-button" href="{{ url_for('discover') }}">Explore Services</a>
+    </div>
 
     <!-- Stats row -->
-    <div style=" <!-- stats grid start -->
-      margin-top: 18px; <!-- spacing -->
-      display:grid; <!-- grid layout -->
-      grid-template-columns: repeat(3, minmax(160px, 1fr)); <!-- 3 columns -->
-      gap: 14px;"> <!-- grid gap -->
+    <div style="
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+      gap: 14px;">
+      
+      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+        <div style="opacity:0.75; font-size: 13px;">Total Reviews</div>
+        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;">
+          {{ total_reviews }}
+        </div>
+      </div>
 
-      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);"> <!-- stat card -->
-        <div style="opacity:0.75; font-size: 13px;">Total Reviews</div> <!-- stat label -->
-        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;"> <!-- stat value -->
-          {{ total_reviews }} <!-- total reviews count -->
-        </div> <!-- end stat value -->
-      </div> <!-- end stat card -->
+      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+        <div style="opacity:0.75; font-size: 13px;">Average Cheese</div>
+        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;">
+          {% if avg_cheese %}
+            {{ avg_cheese }} / 5 🧀
+          {% else %}
+            — 🧀
+          {% endif %}
+        </div>
+      </div>
 
-      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);"> <!-- stat card -->
-        <div style="opacity:0.75; font-size: 13px;">Average Cheese</div> <!-- stat label -->
-        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;"> <!-- stat value -->
-          {% if avg_cheese %} <!-- has avg -->
-            {{ avg_cheese }} / 5 🧀 <!-- avg value -->
-          {% else %} <!-- no avg -->
-            — 🧀 <!-- placeholder -->
-          {% endif %} <!-- end if -->
-        </div> <!-- end stat value -->
-      </div> <!-- end stat card -->
+      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);">
+        <div style="opacity:0.75; font-size: 13px;">Top Category</div>
+        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;">
+          {{ top_category if top_category else "—" }}
+        </div>
+      </div>
 
-      <div style="padding:14px; border-radius:14px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);"> <!-- stat card -->
-        <div style="opacity:0.75; font-size: 13px;">Top Category</div> <!-- stat label -->
-        <div style="font-size: 22px; font-weight: 800; margin-top: 6px;"> <!-- stat value -->
-          {{ top_category if top_category else "—" }} <!-- top category -->
-        </div> <!-- end stat value -->
-      </div> <!-- end stat card -->
-
-    </div> <!-- end stats row -->
-  </section> <!-- end profile card -->
+    </div>
+  </section>
 
   <!-- Mouse Customization -->
-  <section class="detail-card" style="margin-top: 18px;"> <!-- customization card -->
-    <h2 style="margin-top:0;">Customize Your Mouse</h2> <!-- section heading -->
-    <p style="opacity:0.8; margin-top:0;">Pick a color for your mouse. It's saved to your account.</p> <!-- helper text -->
+  <section class="detail-card" style="margin-top: 18px;">
+    <h2 style="margin-top:0;">Customize Your Mouse</h2>
+    <p style="opacity:0.8; margin-top:0;">Pick a color for your mouse. It's saved to your account.</p>
 
-    <form method="post" action="{{ url_for('update_mouse_color') }}" class="mouse-color-form"> <!-- color form -->
-      {% for color in mouse_colors %} <!-- loop colors -->
-        <button <!-- swatch button -->
-          type="submit" <!-- submit type -->
-          name="color" <!-- field name -->
-          value="{{ color }}" <!-- field value -->
-          class="mouse-swatch {% if color == mouse_color %}mouse-swatch--active{% endif %}" <!-- active class -->
-          style="background-color: {{ color }};" <!-- swatch color -->
-          title="{{ color }}" <!-- tooltip -->
-        ></button> <!-- end button -->
-      {% endfor %} <!-- end loop -->
-    </form> <!-- end form -->
+    <form method="post" action="{{ url_for('update_mouse_color') }}" class="mouse-color-form">
+      {% for color in mouse_colors %}
+        <button
+          type="submit"
+          name="color"
+          value="{{ color }}"
+          class="mouse-swatch {% if color == mouse_color %}mouse-swatch--active{% endif %}"
+          style="background-color: {{ color }};"
+          title="{{ color }}"
+        ></button>
+      {% endfor %}
+    </form>
 
-    <p style="opacity:0.8; margin-top: 16px; margin-bottom:0;"> <!-- unlock info -->
-      🕶️ Sunglasses unlock at 3 reviews {% if has_sunglasses %}— unlocked!{% else %}({{ total_reviews }}/3){% endif %}<br> <!-- sunglasses status -->
-      🧀 Cheese hat unlocks at 5 reviews {% if has_cheese_hat %}— unlocked!{% else %}({{ total_reviews }}/5){% endif %} <!-- cheese hat status -->
-    </p> <!-- end unlock info -->
-  </section> <!-- end customization card -->
+    <p style="opacity:0.8; margin-top: 16px; margin-bottom:0;">
+      🕶️ Sunglasses unlock at 3 reviews {% if has_sunglasses %}— unlocked!{% else %}({{ total_reviews }}/3){% endif %}<br>
+      🧀 Cheese hat unlocks at 5 reviews {% if has_cheese_hat %}— unlocked!{% else %}({{ total_reviews }}/5){% endif %}
+    </p>
+  </section>
 
   <!-- Reviews -->
-  <section class="detail-card" style="margin-top: 18px;"> <!-- reviews card -->
-    <h2 style="margin-top:0;">Your Reviews</h2> <!-- reviews heading -->
+  <section class="detail-card" style="margin-top: 18px;">
+    <h2 style="margin-top:0;">Your Reviews</h2>
 
-    {% if user_reviews %} <!-- has reviews -->
-      <ul class="reviews-list"> <!-- reviews list -->
-        {% for r in user_reviews %} <!-- loop reviews -->
-          <li class="review-item"> <!-- review item -->
-            <div class="review-header" style="display:flex; align-items:center; justify-content:space-between; gap: 10px;"> <!-- review header -->
-              <div> <!-- review meta -->
-                <strong>{{ r.business_name }}</strong> <!-- business name -->
-                <div style="opacity:0.7; font-size: 13px; margin-top: 2px;"> <!-- meta details -->
-                  {{ r.category if r.category else "Service" }} <!-- category -->
-                  {% if r.created_at %} • {{ r.created_at }}{% endif %} <!-- created date -->
-                </div> <!-- end meta details -->
-              </div> <!-- end review meta -->
-              <span style="font-weight: 700;">{{ r.rating }} 🧀</span> <!-- rating -->
-            </div> <!-- end review header -->
+    {% if user_reviews %}
+      <ul class="reviews-list">
+        {% for r in user_reviews %}
+          <li class="review-item">
+            <div class="review-header" style="display:flex; align-items:center; justify-content:space-between; gap: 10px;">
+              <div>
+                <strong>{{ r.business_name }}</strong>
+                <div style="opacity:0.7; font-size: 13px; margin-top: 2px;">
+                  {{ r.category if r.category else "Service" }}
+                  {% if r.created_at %} • {{ r.created_at }}{% endif %}
+                </div>
+              </div>
+              <span style="font-weight: 700;">{{ r.rating }} 🧀</span>
+            </div>
 
-            {% if r.comment %} <!-- has comment -->
-              <p style="margin-top: 10px;">{{ r.comment }}</p> <!-- comment text -->
-            {% else %} <!-- no comment -->
-              <p style="margin-top: 10px; opacity:0.7;">No comment left.</p> <!-- no comment text -->
-            {% endif %} <!-- end if -->
+            {% if r.comment %}
+              <p style="margin-top: 10px;">{{ r.comment }}</p>
+            {% else %}
+              <p style="margin-top: 10px; opacity:0.7;">No comment left.</p>
+            {% endif %}
 
             <!-- Optional quick action -->
-            <div style="margin-top: 10px;"> <!-- action row -->
-              <a class="secondary-button" href="{{ url_for('business_detail', biz_id=r.business_id) }}"> <!-- view link -->
-                View Business → <!-- link text -->
-              </a> <!-- end link -->
-            </div> <!-- end action row -->
-          </li> <!-- end review item -->
-        {% endfor %} <!-- end loop -->
-      </ul> <!-- end reviews list -->
-    {% else %} <!-- no reviews -->
-      <p style="opacity:0.8;">No reviews yet. Go grate something. 🧀</p> <!-- empty state text -->
-      <a class="primary-button" href="{{ url_for('discover') }}">Find a service to review</a> <!-- discover link -->
-    {% endif %} <!-- end if -->
-  </section> <!-- end reviews card -->
+            <div style="margin-top: 10px;">
+              <a class="secondary-button" href="{{ url_for('business_detail', biz_id=r.business_id) }}"> 
+                View Business →
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p style="opacity:0.8;">No reviews yet. Go grate something. 🧀</p>
+      <a class="primary-button" href="{{ url_for('discover') }}">Find a service to review</a>
+    {% endif %}
+  </section>
 
-</main> <!-- end main -->
+</main>
 
-</body> <!-- body end -->
-</html> <!-- html end -->
+</body>
+</html>

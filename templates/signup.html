@@ -1,95 +1,95 @@
-<!doctype html> <!-- doctype -->
-<html lang="en"> <!-- html root -->
-<head> <!-- head start -->
-    <meta charset="utf-8"> <!-- charset -->
-    <title>Sign up - GRATE MY / SERVICE</title> <!-- page title -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- styles -->
-</head> <!-- head end -->
-<body> <!-- body start -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sign up - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
 
-<img src="{{ url_for('static', filename='images/grate.png') }}" <!-- grate image -->
-     alt="" <!-- empty alt -->
-     class="grater-decoration"> <!-- grater decoration image -->
+<img src="{{ url_for('static', filename='images/grate.png') }}"
+     alt=""
+     class="grater-decoration">
 
-<img src="{{ url_for('static', filename='images/left.png') }}" <!-- left image -->
-     alt="" <!-- empty alt -->
-     class="left-decoration"> <!-- left decoration image -->
+<img src="{{ url_for('static', filename='images/left.png') }}"
+     alt=""
+     class="left-decoration">
 
 
-<header class="top-nav"> <!-- nav header -->
-    <div class="nav-left"> <!-- left nav -->
-        <span class="nav-logo">🧀</span> <!-- logo emoji -->
-        <span class="nav-title">Grate My Service</span> <!-- site title -->
-    </div> <!-- close left nav -->
-</header> <!-- close header -->
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+</header>
 
-<main class="page-container auth-layout"> <!-- main auth layout -->
-    <section class="auth-card"> <!-- auth card -->
+<main class="page-container auth-layout">
+    <section class="auth-card">
 
         <!-- tabs: signup is active now -->
-        <div class="auth-tabs"> <!-- auth tabs -->
-            <a href="{{ url_for('login') }}" class="auth-tab">Log in</a> <!-- login tab -->
-            <a href="{{ url_for('signup') }}" class="auth-tab auth-tab--active">Sign up</a> <!-- signup tab active -->
-        </div> <!-- close tabs -->
+        <div class="auth-tabs">
+            <a href="{{ url_for('login') }}" class="auth-tab">Log in</a>
+            <a href="{{ url_for('signup') }}" class="auth-tab auth-tab--active">Sign up</a>
+        </div>
 
-        <div class="auth-header"> <!-- auth header -->
-            <h1>Create your account</h1> <!-- heading -->
-        </div> <!-- close auth header -->
+        <div class="auth-header">
+            <h1>Create your account</h1>
+        </div>
 
-        {% if error %} <!-- if error exists -->
-            <p class="auth-error">{{ error }}</p> <!-- error message -->
-        {% endif %} <!-- end error check -->
+        {% if error %}
+            <p class="auth-error">{{ error }}</p>
+        {% endif %}
 
-        <form method="post" class="auth-form"> <!-- signup form -->
-            <label class="auth-label"> <!-- username label -->
-                Username <!-- label text -->
-                <input <!-- input start -->
-                    type="text" <!-- text type -->
-                    name="username" <!-- field name -->
-                    value="{{ username or '' }}" <!-- field value -->
-                    required <!-- required attr -->
-                    autocomplete="username" <!-- autocomplete attr -->
-                    class="auth-input" <!-- input class -->
-                > <!-- username input -->
-                <small class="auth-hint"> <!-- username hint -->
-                    Must be 3-20 characters and contain only letters and numbers. <!-- hint text -->
-                </small> <!-- close hint -->
-            </label> <!-- close username label -->
+        <form method="post" class="auth-form">
+            <label class="auth-label">
+                Username
+                <input
+                    type="text"
+                    name="username"
+                    value="{{ username or '' }}"
+                    required
+                    autocomplete="username"
+                    class="auth-input"
+                >
+                <small class="auth-hint">
+                    Must be 3-20 characters and contain only letters and numbers.
+                </small>
+            </label>
 
-            <label class="auth-label"> <!-- password label -->
-                Password <!-- label text -->
-                <input <!-- input start -->
-                    type="password" <!-- password type -->
-                    name="password" <!-- field name -->
-                    required <!-- required attr -->
-                    autocomplete="new-password" <!-- autocomplete attr -->
-                    class="auth-input" <!-- input class -->
-                > <!-- password input -->
-                <small class="auth-hint"> <!-- password hint -->
-                    Must be at least 8 characters and include an uppercase letter, a lowercase letter, and a number. <!-- hint text -->
-                </small> <!-- close hint -->
-            </label> <!-- close password label -->
+            <label class="auth-label">
+                Password
+                <input
+                    type="password"
+                    name="password"
+                    required
+                    autocomplete="new-password"
+                    class="auth-input"
+                >
+                <small class="auth-hint">
+                    Must be at least 8 characters and include an uppercase letter, a lowercase letter, and a number.
+                </small>
+            </label>
 
-            <label class="auth-label"> <!-- confirm password label -->
-                Confirm password <!-- label text -->
-                <input <!-- input start -->
-                    type="password" <!-- password type -->
-                    name="confirm" <!-- field name -->
-                    required <!-- required attr -->
-                    autocomplete="new-password" <!-- autocomplete attr -->
-                    class="auth-input" <!-- input class -->
-                > <!-- confirm password input -->
-            </label> <!-- close confirm label -->
+            <label class="auth-label">
+                Confirm password
+                <input
+                    type="password"
+                    name="confirm"
+                    required
+                    autocomplete="new-password"
+                    class="auth-input"
+                >
+            </label>
 
-            <div class="auth-actions"> <!-- form actions -->
-                <button type="submit" class="primary-button auth-button"> <!-- submit button -->
-                    Continue → <!-- button text -->
-                </button> <!-- close button -->
-            </div> <!-- close actions -->
+            <div class="auth-actions">
+                <button type="submit" class="primary-button auth-button">
+                    Continue →
+                </button>
+            </div>
 
-        </form> <!-- close form -->
-    </section> <!-- close auth card -->
-</main> <!-- close main -->
+        </form>
+    </section>
+</main>
 
-</body> <!-- close body -->
-</html> <!-- close html -->
+</body>
+</html>

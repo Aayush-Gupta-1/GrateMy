@@ -1,79 +1,79 @@
-<!doctype html> <!-- doctype declaration -->
-<html lang="en"> <!-- html root -->
-<head> <!-- head section -->
-    <meta charset="utf-8"> <!-- charset -->
-    <title>Log in - GRATE MY / SERVICE</title> <!-- page title -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- stylesheet link -->
-</head> <!-- end head -->
-<body> <!-- body start -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Log in - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
 
-<img src="{{ url_for('static', filename='images/grate.png') }}" <!-- grater image src -->
-     alt="" <!-- empty alt -->
-     class="grater-decoration"> <!-- decoration class -->
+<img src="{{ url_for('static', filename='images/grate.png') }}"
+     alt=""
+     class="grater-decoration">
 
-<img src="{{ url_for('static', filename='images/left.png') }}" <!-- left image src -->
-     alt="" <!-- empty alt -->
-     class="left-decoration"> <!-- decoration class -->
-
-
-<header class="top-nav"> <!-- top nav header -->
-    <div class="nav-left"> <!-- nav left container -->
-        <span class="nav-logo">🧀</span> <!-- logo emoji -->
-        <span class="nav-title">Grate My Service</span> <!-- nav title -->
-    </div> <!-- end nav-left -->
-</header> <!-- end header -->
+<img src="{{ url_for('static', filename='images/left.png') }}"
+     alt=""
+     class="left-decoration">
 
 
-<main class="page-container auth-layout"> <!-- main container -->
-    <section class="auth-card"> <!-- auth card section -->
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+</header>
+
+
+<main class="page-container auth-layout">
+    <section class="auth-card">
 
         <!-- tabs: login / signup -->
-        <div class="auth-tabs"> <!-- tabs container -->
-            <a href="{{ url_for('login') }}" class="auth-tab auth-tab--active">Log in</a> <!-- login tab -->
-            <a href="{{ url_for('signup') }}" class="auth-tab">Sign up</a> <!-- signup tab -->
-        </div> <!-- end tabs -->
+        <div class="auth-tabs">
+            <a href="{{ url_for('login') }}" class="auth-tab auth-tab--active">Log in</a>
+            <a href="{{ url_for('signup') }}" class="auth-tab">Sign up</a>
+        </div>
 
-        <div class="auth-header"> <!-- header container -->
-            <h1>Log in to Grate</h1> <!-- heading -->
-        </div> <!-- end auth-header -->
+        <div class="auth-header">
+            <h1>Log in to Grate</h1>
+        </div>
 
-        {% if error %} <!-- if error present -->
-            <p class="auth-error">{{ error }}</p> <!-- error text -->
-        {% endif %} <!-- end if -->
+        {% if error %}
+            <p class="auth-error">{{ error }}</p>
+        {% endif %}
 
-        <form method="post" class="auth-form"> <!-- login form -->
-            <label class="auth-label"> <!-- username label -->
-                Username <!-- label text -->
+        <form method="post" class="auth-form">
+            <label class="auth-label">
+                Username
                 <input
                     type="text"
                     name="username"
                     required
                     autocomplete="username"
                     class="auth-input"
-                > <!-- username input -->
-            </label> <!-- end username label -->
+                >
+            </label>
 
-            <label class="auth-label"> <!-- password label -->
-                Password <!-- label text -->
+            <label class="auth-label">
+                Password
                 <input
                     type="password"
                     name="password"
                     required
                     autocomplete="current-password"
                     class="auth-input"
-                > <!-- password input -->
-            </label> <!-- end password label -->
+                >
+            </label>
 
-            <div class="auth-actions"> <!-- actions container -->
-                <button type="submit" class="primary-button auth-button"> <!-- submit button -->
-                    Log in <!-- button text -->
-                </button> <!-- end button -->
-            </div> <!-- end auth-actions -->
+            <div class="auth-actions">
+                <button type="submit" class="primary-button auth-button">
+                    Log in
+                </button>
+            </div>
 
 
-        </form> <!-- end form -->
-    </section> <!-- end auth-card -->
-</main> <!-- end main -->
+        </form>
+    </section>
+</main>
 
-</body> <!-- end body -->
-</html> <!-- end html -->
+</body>
+</html>

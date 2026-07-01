@@ -1,57 +1,57 @@
-<!doctype html> <!-- doctype declaration -->
-<html lang="en"> <!-- html root -->
-<head> <!-- head section -->
-    <meta charset="utf-8"> <!-- charset -->
-    <title>One more step - GRATE MY / SERVICE</title> <!-- page title -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <!-- stylesheet link -->
-</head> <!-- end head -->
-<body> <!-- body start -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>One more step - GRATE MY / SERVICE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
 
-<header class="top-nav"> <!-- top nav header -->
-    <div class="nav-left"> <!-- nav left container -->
-        <span class="nav-logo">🧀</span> <!-- logo emoji -->
-        <span class="nav-title">Grate My Service</span> <!-- nav title -->
-    </div> <!-- end nav-left -->
-</header> <!-- end header -->
+<header class="top-nav">
+    <div class="nav-left">
+        <span class="nav-logo">🧀</span>
+        <span class="nav-title">Grate My Service</span>
+    </div>
+</header>
 
-<main class="page-container auth-layout"> <!-- main container -->
-    <section class="auth-card"> <!-- auth card section -->
-        <div class="auth-header"> <!-- header container -->
-            <h1>Prove you’re not a bot</h1> <!-- heading -->
-            <p class="auth-subtitle"> <!-- subtitle text -->
-                Move your mouse from <strong>START</strong> to the cheese without touching the walls. <!-- instructions -->
-            </p> <!-- end subtitle -->
-        </div> <!-- end auth-header -->
+<main class="page-container auth-layout">
+    <section class="auth-card">
+        <div class="auth-header">
+            <h1>Prove you’re not a bot</h1>
+            <p class="auth-subtitle">
+                Move your mouse from <strong>START</strong> to the cheese without touching the walls.
+            </p>
+        </div>
 
-        {% if error %} <!-- if error present -->
-            <p class="auth-error">{{ error }}</p> <!-- error text -->
-        {% endif %} <!-- end if -->
+        {% if error %}
+            <p class="auth-error">{{ error }}</p>
+        {% endif %}
 
-        <form method="post" class="card captcha-area"> <!-- captcha form -->
-            <div id="maze-wrapper"> <!-- maze wrapper -->
+        <form method="post" class="card captcha-area">
+            <div id="maze-wrapper">
                 <!-- Canvas the JS draws the maze onto -->
-                <canvas id="maze-canvas" width="420" height="420"></canvas> <!-- maze canvas -->
+                <canvas id="maze-canvas" width="420" height="420"></canvas>
 
                 <!-- Mouse that follows the cursor -->
-                <div id="maze-player">🐭</div> <!-- player icon -->
+                <div id="maze-player">🐭</div>
 
                 <!-- Labels used for start/goal hitboxes -->
-                <div id="maze-start-label">START</div> <!-- start label -->
-                <div id="maze-cheese-label">🧀</div> <!-- goal label -->
-            </div> <!-- end maze-wrapper -->
+                <div id="maze-start-label">START</div>
+                <div id="maze-cheese-label">🧀</div>
+            </div>
 
-            <p id="maze-status">Not verified yet</p> <!-- status text -->
-            <input type="hidden" id="captcha_ok" name="captcha_ok" value="0"> <!-- hidden captcha field -->
+            <p id="maze-status">Not verified yet</p>
+            <input type="hidden" id="captcha_ok" name="captcha_ok" value="0">
 
-            <div class="auth-actions"> <!-- actions container -->
-                <button type="submit" class="primary-button auth-button"> <!-- submit button -->
-                    Finish sign up <!-- button text -->
-                </button> <!-- end button -->
-            </div> <!-- end auth-actions -->
-        </form> <!-- end form -->
-    </section> <!-- end auth-card -->
-</main> <!-- end main -->
+            <div class="auth-actions">
+                <button type="submit" class="primary-button auth-button">
+                    Finish sign up
+                </button>
+            </div>
+        </form>
+    </section>
+</main>
 
-<script src="{{ url_for('static', filename='js/signup_maze.js') }}"></script> <!-- maze script -->
-</body> <!-- end body -->
-</html> <!-- end html -->
+<script src="{{ url_for('static', filename='js/signup_maze.js') }}"></script>
+</body>
+</html>
